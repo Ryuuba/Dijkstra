@@ -10,3 +10,4 @@ const Status Status::LEADER(5);
 const Status Status::FOLLOWER(6);
 const Status Status::SATURATED(7);
 const Status Status::PROCESSING(8);
+const Status Status::UPDATING(9);

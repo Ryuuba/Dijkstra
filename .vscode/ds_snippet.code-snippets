@@ -16,21 +16,28 @@
 	// 	"description": "Log output to console"
 	// }
 
-		"Add action": {
+		"Add action class": {
 			"prefix": "action",
 			"body": [
-				"/** @brief $1*/",
-				"class Action$2 : public BaseAction {", 
+				"class ${1:Namespace}::Action${2:name} : public BaseAction {", 
 				"private:",
-				"\t$3* node;",
+				"\t${1:Namespace}* node;",
 				"public:",
-				"\tAction${2:ClassName}(${3:NodeClass}* n) : node(n), BaseAction(\"Action${2:ClassName}\") { }",
-				"\tvoid operator()(Event ev) {", 
-				"\t\t$0",
-				"\t}",
-				"};"
+				"\tAction${2:name}(${1:Namespace}* n) : BaseAction(\"Action${2:name}\"), node(n) { }",
+				"\tvoid operator()(${3:EventPtr});", 
+				"};",
+				"$0"
 			],
-			"description": "Add new action derived from BaseAction"
+			"description": "Adds new action derived from BaseAction"
+		},
+		"Add operator() definition" :{
+			"prefix": "operator",
+			"body": [
+				"void ${1:Namespace}::${2:Classname}::operator()(${3:EventPtr} ${4:ptr}) {",
+				"\t$0",
+				"}"
+			],
+			"description": "Implements an action by overloading the operator ()"
 		},
 		"Add derived class": {
 			"prefix": "class",
@@ -50,7 +57,22 @@
 				"};",
 				"$0"
 			],
-			"description": "The standard body of a class extending BaseNose"
+			"description": "Adds the standard body of a class extending BaseNose"
+		},
+		"Add node description": {
+			"prefix": "simple",
+			"body": [
+				"package dsbase;",
+				"import dsbase.BaseNode;",
+				"",
+				"simple $1 extends BaseNode",
+				"{",
+				"\tparameters:",
+				"\t\t@class(${1:ModuleName});",
+				"}",
+				"$0"
+			],
+			"description": "Adds an simple module derived from BaseNose"
 		},
 	  "Add license": {
 			"prefix": "GNU",
@@ -72,18 +94,11 @@
 			],
 			"description": "The GNU license of this code"
 		},
-		"Add node description": {
-			"prefix": "simple",
+		"Add brief comment": {
+			"prefix": "brief",
 			"body": [
-				"package dsbase;",
-				"import dsbase.BaseNode",
-				"",
-				"simple $1 extends BaseNode",
-				"{",
-				"\tparameters:",
-				"\t\t@class(${1:ModuleName})",
-				"}",
-				"$0"
-			]
+				"/** @brief $1 */$0",
+			],
+			"description": "Adds a bried comment"
 		}
 }

@@ -18,11 +18,14 @@
 
 #include "Status.h"
 #include "Event.h"
+#include <utility>
 
 class Enabler {
-public:
+private:
   Status status;
   EventKind event;
+public:
+  Enabler() : status(), event() { }
   Enabler(const Status& status, EventKind event) {
     this->status = status;
     this->event = event;
@@ -32,17 +35,19 @@ public:
     this->event = event;
   }
   bool operator==(const Enabler& e) {
-    return (this->status == e.status) && (this->event == event);
+    return (this->status == e.status) && (this->event == e.event);
   }
   bool operator==(const Enabler& e) const {
-    return (this->status == e.status) && (this->event == event);
+    return (this->status == e.status) && (this->event == e.event);
   }
+  Status getStatus() const { return status; }
+  EventKind getEventKind() const { return event; }
 };
 
 
 struct EnablerHasher {
   std::size_t operator()(Enabler const& e) const noexcept {
-    size_t hash = std::hash<int>{}((e.status.get() + e.event)*(e.status.get() + e.event + 1)/2 + e.event);
+    size_t hash = std::hash<int>{}((e.getStatus().get() + e.getEventKind())*(e.getStatus().get() + e.getEventKind() + 1)/2 + e.getEventKind());
     return hash;
   }
 };

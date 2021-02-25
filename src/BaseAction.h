@@ -16,7 +16,7 @@
 #if !defined(BASE_ACTION_H)
 #define BASE_ACTION_H
 
-#define Add_Action(CLASSNAME) std::make_shared<CLASSNAME>(this)
+#define New_Action(CLASSNAME) (std::make_shared<CLASSNAME>(this))
 
 class BaseAction {
 private:
@@ -26,7 +26,7 @@ public:
   BaseAction(const char* n) : name(n) { }
   /** @brief Abstract member function that derived class overloads to act as
    *  functors */
-  virtual void operator()(Event) = 0;
+  virtual void operator()(omnetpp::cMessage*) = 0;
   /** @brief Returns the name of the action */
   virtual const char* getName() { return name; }
 };

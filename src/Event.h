@@ -17,9 +17,12 @@
 #define EVENT_H
 
 #include <omnetpp.h>
-
-typedef omnetpp::cMessage* Event;
-typedef omnetpp::cMessage* Msg;
+/** @brief Represents an spontaneous impulse */
+typedef omnetpp::cMessage* ImpulsePtr;
+/** @brief Represents the expiration of a timer */
+typedef omnetpp::cMessage* TimeoutPtr;
+/** @brief Represents the reception of a message */
+typedef omnetpp::cMessage* MsgPtr;
 
 enum EventKind {
   /** @brief An spontaneous impulse */
@@ -49,8 +52,10 @@ enum EventKind {
   /** @brief A message indicating the reception of |N(x)| - 1 messages*/
   SATURATION,
   /** @brief A message use to solve the Election problem */
-  ELECTION
+  ELECTION,
   // Append other categories from here
+  /** @brief A hello message */
+  HELLO
 };
 
 #endif

@@ -28,6 +28,7 @@ omnetpp::cMessage* BaseNode::localFlooding(omnetpp::cMessage* msg) {
     omnetpp::cRuntimeError("localFlooding: This message has not been sent previosly, not sender to be discarded\n");
     delete msg;
   }
+  return msg;
 }
 
 omnetpp::cMessage* BaseNode::localMulticast(
@@ -56,24 +57,35 @@ void BaseNode::spontaneously() {
 }
 
 void BaseNode::setTimer(omnetpp::simtime_t t) {
-  if (!timer)
-    timer = new omnetpp::cMessage("timer", EventKind::TIMER);
-  if (!timer->isScheduled())
-    scheduleAt(omnetpp::simTime() + t, timer);
+  if (!timeout)
+    timeout = new omnetpp::cMessage("timer", EventKind::TIMER);
+  if (!timeout->isScheduled())
+    scheduleAt(omnetpp::simTime() + t, timeout);
   else
-    EV_INFO << "The timer is already scheduled\n";
+    EV_ERROR << "The timer is already scheduled\n";
 }
 
-void BaseNode::handleMessage(Event ev) {
+void BaseNode::handleMessage(omnetpp::cMessage* ev) {
   EventKind event = static_cast<EventKind>(ev->getKind());
-  Enabler pair(status, event);
-  auto it = rule.find(pair);
-  if (it != rule.end()) {
+  pair.set(status, event);
+  auto it = protocol.find(pair);
+  if (it != protocol.end()) {
   EV_INFO << "Node[" << getIndex() << "] meets rule ("
-          << status.str() << ", " << ev->getName() << ") -> "
+          << it->first.getStatus().str() << ", " 
+          << ev->getName() << ") -> "
           << it->second->getName() << '\n';
-    (*rule[pair])(ev);
+    (*protocol[pair])(ev);
   }
   else
     nil(ev);
+}
+
+void BaseNode::addRule(
+  const Status& s, 
+  EventKind e,
+  const std::shared_ptr<BaseAction>& action
+) {
+  pair.set(s, e);
+  protocol[pair] = action;
+  auto it = protocol.find(pair);
 }

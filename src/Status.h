@@ -51,6 +51,8 @@ public:
   static const Status FOLLOWER;
   /** @brief Status associated to nodes that do not have any actions to do */
   static const Status DONE;
+  /** @brief Status associated to nodes updating their data structures */
+  static const Status UPDATING;
   /** @brief Default constructor */
   Status() : status(-1) { }
   /** @brief Overloaded constructor taking values from the static variables 
@@ -65,7 +67,7 @@ public:
   virtual int get() {return status;}
   /** @brief Returns the numeric value associated to the status */
   virtual int get() const {return status;}
-  /** @brief Assings a possible status of this set*/
+  /** @br9ief Assings a possible status of this set*/
   virtual bool operator==(const Status& s) {
     return status == s.status; 
   }
@@ -85,6 +87,7 @@ public:
     case 6:  return "FOLLOWER";     
     case 7:  return "SATURATED";     
     case 8:  return "PROCESSING";     
+    case 9:  return "UPDATING";     
     default: return "UNDEFINED";
     }
   }
