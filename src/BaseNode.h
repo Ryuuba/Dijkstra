@@ -24,6 +24,7 @@
 
 #include "Enabler.h"
 #include "BaseAction.h"
+#include "Edge.h"
 
 class BaseNode : public omnetpp::cSimpleModule {
 private:
@@ -50,9 +51,15 @@ private:
    * 
    */
   std::unordered_map<Enabler, std::shared_ptr<BaseAction>, EnablerHasher> protocol;
+  /** @brief Structure storing gate pointers. Communications are efficient7
+   *  when they are used.
+  */
+  std::vector<omnetpp::cGate*> neighborhood;
 protected:
   /** @brief The current status of this node */
   Status status;
+  /** @brief The neighborhood size */
+  int neighborhoodSize;
   /** @brief The name of the output port */
   const char* out = "port$o";
 public:
@@ -109,12 +116,12 @@ public:
    *  @param first - The number of port to access the link
    *  @param second - The width of the edge
   */
-  virtual void changeEdgeWidth(int, int);
+  virtual void changeEdgeWidth(int, int) const;
   /** @brief Changes the color of an edge 
    *  @param first - The number of port to access the link
    *  @param second - The name of a HTML standard color
   */
-  virtual void changeEdgeColor(int, const char*);
+  virtual void changeEdgeColor(int, const char*) const;
   /** @brief Spontaneously, gets up this node. Wake-up time is set in 
    *  omnetpp.ini (parameter startTime). By default, nodes spontaneously wake
    *  up at t = 0 s.
@@ -128,7 +135,22 @@ public:
    *  an action, use the New_Action macro since this method needs a shared
    *  pointer pointing to a valid action functor.
   */
-  virtual void addRule(const Status&, EventKind ev, const std::shared_ptr<BaseAction>&); 
+  virtual void addRule(const Status&, EventKind ev, const std::shared_ptr<BaseAction>&);
+  /** @brief Returns the weight of the link connected to a given port.
+   *  @param first - The name of the port either "in" or "out".
+   *  @param second - The index of the port (default zero).
+  */
+  virtual int getLinkWeight(const char*, int index = 0);
+  /** @brief Returns the weight of the link connected to a given port.
+   *  @param first - The name of the port either "in" or "out".
+   *  @param second - The index of the port (default zero).
+  */
+  virtual int getLinkWeight(omnetpp::cGate*, int index = 0);
+  /** @brief Initializes data about N(x), especifically a gate vector used
+   *  to perform efficent communications and the neighborhood size variable.
+   *  Invoke this method in initialize()
+  */
+ virtual void initializeNeighborhood();
 };
 
 #endif // BASENODE_H

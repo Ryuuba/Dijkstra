@@ -29,6 +29,8 @@ enum EventKind {
   IMPULSE = 0,
   /** @brief The expiration of a timer */
   TIMER,
+  /** @brief A message carrying a data, e.g., a local min value */
+  DATA,
   /** @brief The reception of a query */
   QUERY,
   /** @brief The reception of a reply */
@@ -55,7 +57,9 @@ enum EventKind {
   ELECTION,
   // Append other categories from here
   /** @brief A hello message */
-  HELLO
+  HELLO,
+  /** @brief A message containg a local minimum  */
+  MIN
 };
 
 #endif

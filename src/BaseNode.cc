@@ -43,12 +43,12 @@ omnetpp::cMessage* BaseNode::localMulticast(
   return msg;
 }
 
-void BaseNode::changeEdgeColor(int p, const char* color) {
-  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 0, "red");
+void BaseNode::changeEdgeColor(int p, const char* color) const {
+  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 0, color);
 }
 
-void BaseNode::changeEdgeWidth(int p, int width) {
-  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 1, p);
+void BaseNode::changeEdgeWidth(int p, int width) const {
+  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 1, width);
 }
 
 void BaseNode::spontaneously() {
@@ -87,5 +87,20 @@ void BaseNode::addRule(
 ) {
   pair.set(s, e);
   protocol[pair] = action;
-  auto it = protocol.find(pair);
+}
+
+int BaseNode::getLinkWeight(const char* name, int index) {
+  auto edge = dynamic_cast<Edge*>(gate(name, index)->getChannel());
+  return edge ->getWeight();
+}
+
+int BaseNode::getLinkWeight(omnetpp::cGate* gate, int index) {
+  auto edge = dynamic_cast<Edge*>(gate);
+  return edge->getWeight();
+}
+
+void BaseNode::initializeNeighborhood() {
+  neighborhoodSize = gateSize(out);
+  for (int i = 0; i < neighborhoodSize; i++)
+    neighborhood.push_back(gate(out, i));
 }

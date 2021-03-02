@@ -53,6 +53,8 @@ public:
   static const Status DONE;
   /** @brief Status associated to nodes updating their data structures */
   static const Status UPDATING;
+  /** @brief Status associated to nodes trying to establish a connection */
+  static const Status CONNECTING;
   /** @brief Default constructor */
   Status() : status(-1) { }
   /** @brief Overloaded constructor taking values from the static variables 
@@ -67,13 +69,21 @@ public:
   virtual int get() {return status;}
   /** @brief Returns the numeric value associated to the status */
   virtual int get() const {return status;}
-  /** @br9ief Assings a possible status of this set*/
+  /** @brief Comparation of status of this set*/
   virtual bool operator==(const Status& s) {
     return status == s.status; 
   }
-  /** @brief Assings a possible status of this set*/
+  /** @brief Comparation of status of this set*/
   virtual bool operator==(const Status& s) const {
     return status == s.status; 
+  }
+  /** @brief Comparation of status of this set*/
+  virtual bool operator!=(const Status& s) {
+    return status != s.status; 
+  }
+  /** @brief Comparation of status of this set*/
+  virtual bool operator!=(const Status& s) const {
+    return status != s.status; 
   }
   /** @brief Returns a c-style string containing the name of the status */
   virtual const char* str() const {
@@ -87,7 +97,8 @@ public:
     case 6:  return "FOLLOWER";     
     case 7:  return "SATURATED";     
     case 8:  return "PROCESSING";     
-    case 9:  return "UPDATING";     
+    case 9:  return "UPDATING";    
+    case 10: return "CONNECTING"; 
     default: return "UNDEFINED";
     }
   }

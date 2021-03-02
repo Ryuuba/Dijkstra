@@ -16,26 +16,27 @@
 package dsbase.simulations;
 import dsbase.INode;
 
-import dsbase.simulations.Link;
+import dsbase.Edge;
 
 //
-// Generated network with random topology (6 nodes, 10 edges, seed=1).
+// Generated network with random topology (6 nodes, 10 Edges, seed=1).
 //
 network Mesh {
     parameters:
         @display("bgb=300,300");
         string kind;
+        int w = default(1);
     submodules:
         node[6] : <kind> like INode; // Indicate the kind of node
     connections:
-        node[0].port++ <--> Link <--> node[1].port++;
-        node[0].port++ <--> Link <--> node[2].port++;
-        node[0].port++ <--> Link <--> node[4].port++;
-        node[0].port++ <--> Link <--> node[5].port++;
-        node[1].port++ <--> Link <--> node[3].port++;
-        node[1].port++ <--> Link <--> node[4].port++;
-        node[1].port++ <--> Link <--> node[5].port++;
-        node[2].port++ <--> Link <--> node[5].port++;
-        node[3].port++ <--> Link <--> node[5].port++;
-        node[4].port++ <--> Link <--> node[5].port++;
+        node[0].port++ <--> Edge{weight = 1;} <--> node[1].port++;
+        node[0].port++ <--> Edge{weight = 1;} <--> node[2].port++;
+        node[0].port++ <--> Edge{weight = 1;} <--> node[4].port++;
+        node[0].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[1].port++ <--> Edge{weight = 1;} <--> node[3].port++;
+        node[1].port++ <--> Edge{weight = 1;} <--> node[4].port++;
+        node[1].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[2].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[3].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[4].port++ <--> Edge{weight = 1;} <--> node[5].port++;
 }

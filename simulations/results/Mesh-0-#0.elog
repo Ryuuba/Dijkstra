@@ -1,5 +1,5 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1286 rid Mesh-0-20210224-23:04:28-5967 b 1000
+SB v 1286 rid Mesh-0-20210302-04:39:05-3367 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t dsbase.simulations.Mesh n Mesh cm 1
 MS id 1 d bgb=300,300
@@ -95,9 +95,69 @@ CC sm 6 sg 1572866 dm 7 dg 1048580
 CS sm 6 sg 1572866 d ""
 CC sm 7 sg 1572868 dm 6 dg 1048578
 CS sm 7 sg 1572868 d ""
+CS sm 2 sg 1572864 d t=1.0
+CS sm 2 sg 1572864 d t=1.0,l
+CS sm 2 sg 1572864 d t=1.0,l,black
+CS sm 2 sg 1572865 d t=1.0
+CS sm 2 sg 1572865 d t=1.0,l
+CS sm 2 sg 1572865 d t=1.0,l,black
+CS sm 2 sg 1572866 d t=1.0
+CS sm 2 sg 1572866 d t=1.0,l
+CS sm 2 sg 1572866 d t=1.0,l,black
+CS sm 2 sg 1572867 d t=1.0
+CS sm 2 sg 1572867 d t=1.0,l
+CS sm 2 sg 1572867 d t=1.0,l,black
+CS sm 3 sg 1572864 d t=1.0
+CS sm 3 sg 1572864 d t=1.0,l
+CS sm 3 sg 1572864 d t=1.0,l,black
+CS sm 3 sg 1572865 d t=1.0
+CS sm 3 sg 1572865 d t=1.0,l
+CS sm 3 sg 1572865 d t=1.0,l,black
+CS sm 3 sg 1572866 d t=1.0
+CS sm 3 sg 1572866 d t=1.0,l
+CS sm 3 sg 1572866 d t=1.0,l,black
+CS sm 3 sg 1572867 d t=1.0
+CS sm 3 sg 1572867 d t=1.0,l
+CS sm 3 sg 1572867 d t=1.0,l,black
+CS sm 4 sg 1572864 d t=1.0
+CS sm 4 sg 1572864 d t=1.0,l
+CS sm 4 sg 1572864 d t=1.0,l,black
+CS sm 4 sg 1572865 d t=1.0
+CS sm 4 sg 1572865 d t=1.0,l
+CS sm 4 sg 1572865 d t=1.0,l,black
+CS sm 5 sg 1572864 d t=1.0
+CS sm 5 sg 1572864 d t=1.0,l
+CS sm 5 sg 1572864 d t=1.0,l,black
+CS sm 5 sg 1572865 d t=1.0
+CS sm 5 sg 1572865 d t=1.0,l
+CS sm 5 sg 1572865 d t=1.0,l,black
+CS sm 6 sg 1572864 d t=1.0
+CS sm 6 sg 1572864 d t=1.0,l
+CS sm 6 sg 1572864 d t=1.0,l,black
+CS sm 6 sg 1572865 d t=1.0
+CS sm 6 sg 1572865 d t=1.0,l
+CS sm 6 sg 1572865 d t=1.0,l,black
+CS sm 6 sg 1572866 d t=1.0
+CS sm 6 sg 1572866 d t=1.0,l
+CS sm 6 sg 1572866 d t=1.0,l,black
+CS sm 7 sg 1572864 d t=1.0
+CS sm 7 sg 1572864 d t=1.0,l
+CS sm 7 sg 1572864 d t=1.0,l,black
+CS sm 7 sg 1572865 d t=1.0
+CS sm 7 sg 1572865 d t=1.0,l
+CS sm 7 sg 1572865 d t=1.0,l,black
+CS sm 7 sg 1572866 d t=1.0
+CS sm 7 sg 1572866 d t=1.0,l
+CS sm 7 sg 1572866 d t=1.0,l,black
+CS sm 7 sg 1572867 d t=1.0
+CS sm 7 sg 1572867 d t=1.0,l
+CS sm 7 sg 1572867 d t=1.0,l,black
+CS sm 7 sg 1572868 d t=1.0
+CS sm 7 sg 1572868 d t=1.0,l
+CS sm 7 sg 1572868 d t=1.0,l,black
 MB sm 1 tm 2 m initialize(0)
-CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n spontaneuosly pe -1
-BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n spontaneuosly pe 0
+CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n spontaneuosly pe -1
+BS id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n spontaneuosly pe 0
 ES t 0
 ME
 MB sm 1 tm 3 m initialize(0)
@@ -110,213 +170,55 @@ MB sm 1 tm 6 m initialize(0)
 ME
 MB sm 1 tm 7 m initialize(0)
 ME
-MS id 2 d "t=IDLE\n0;i=device/laptop"
-MS id 3 d "t=IDLE\n0;i=device/laptop"
-MS id 4 d "t=IDLE\n0;i=device/laptop"
-MS id 5 d "t=IDLE\n0;i=device/laptop"
-MS id 6 d "t=IDLE\n0;i=device/laptop"
-MS id 7 d "t=IDLE\n0;i=device/laptop"
+MS id 2 d "t=IDLE\n-1 0 4\n;i=device/laptop"
+CS sm 2 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 2 sg 1572865 d ls=red;t=1.0,l,black
+CS sm 2 sg 1572866 d ls=red;t=1.0,l,black
+CS sm 2 sg 1572867 d ls=red;t=1.0,l,black
+MS id 3 d "t=IDLE\n-1 0 4\n;i=device/laptop"
+CS sm 3 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 3 sg 1572865 d ls=red;t=1.0,l,black
+CS sm 3 sg 1572866 d ls=red;t=1.0,l,black
+CS sm 3 sg 1572867 d ls=red;t=1.0,l,black
+MS id 4 d "t=IDLE\n-1 0 2\n;i=device/laptop"
+CS sm 4 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 4 sg 1572865 d ls=red;t=1.0,l,black
+MS id 5 d "t=IDLE\n-1 0 2\n;i=device/laptop"
+CS sm 5 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 5 sg 1572865 d ls=red;t=1.0,l,black
+MS id 6 d "t=IDLE\n-1 0 3\n;i=device/laptop"
+CS sm 6 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 6 sg 1572865 d ls=red;t=1.0,l,black
+CS sm 6 sg 1572866 d ls=red;t=1.0,l,black
+MS id 7 d "t=IDLE\n-1 0 5\n;i=device/laptop"
+CS sm 7 sg 1572864 d ls=red;t=1.0,l,black
+CS sm 7 sg 1572865 d ls=red;t=1.0,l,black
+CS sm 7 sg 1572866 d ls=red;t=1.0,l,black
+CS sm 7 sg 1572867 d ls=red;t=1.0,l,black
+CS sm 7 sg 1572868 d ls=red;t=1.0,l,black
 
-E # 1 t 0 m 2 ce 0 msg 0
-- INFO:Node[0] meets rule (IDLE, spontaneuosly) -> ActionOne
-CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n "" pe -1
-CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 14 pe 1 cid 2
-BS id 2 tid 1 eid 2 etid 1 c HelloMsg n hello k 14 pe 1
+E # 1 t 0 m 2 ce 0 msg 69
+- INFO:Node[0] meets rule (IDLE, spontaneuosly) -> WakeUp
+CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n "" pe -1
+CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 71
+BS id 71 tid 70 eid 71 etid 70 c HelloMsg n hquery k 15 pe 1
 SH sm 2 sg 1572864 pd 1
 ES t 1
-CL id 2 tid 1 eid 2 etid 1 c HelloMsg n hello k 14 pe 1 cid 3
-CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 14 pe 1 cid 3
-BS id 3 tid 1 eid 3 etid 1 c HelloMsg n hello k 14 pe 1
+CL id 71 tid 70 eid 71 etid 70 c HelloMsg n hquery k 15 pe 1 cid 72
+CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 72
+BS id 72 tid 70 eid 72 etid 70 c HelloMsg n hquery k 15 pe 1
 SH sm 2 sg 1572865 pd 1
 ES t 1
-CL id 3 tid 1 eid 3 etid 1 c HelloMsg n hello k 14 pe 1 cid 4
-CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 14 pe 1 cid 4
-BS id 4 tid 1 eid 4 etid 1 c HelloMsg n hello k 14 pe 1
+CL id 72 tid 70 eid 72 etid 70 c HelloMsg n hquery k 15 pe 1 cid 73
+CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 73
+BS id 73 tid 70 eid 73 etid 70 c HelloMsg n hquery k 15 pe 1
 SH sm 2 sg 1572866 pd 1
 ES t 1
-CL id 4 tid 1 eid 4 etid 1 c HelloMsg n hello k 14 pe 1 cid 5
-BS id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 14 pe 1
+CL id 73 tid 70 eid 73 etid 70 c HelloMsg n hquery k 15 pe 1 cid 74
+CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 74
+BS id 74 tid 70 eid 74 etid 70 c HelloMsg n hquery k 15 pe 1
 SH sm 2 sg 1572867 pd 1
 ES t 1
-CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 14 pe 1 cid 5
-MS id 2 d "t=UPDATING\n0;i=device/laptop"
-
-E # 2 t 1 m 3 ce 1 msg 2
-- INFO:Node[1] meets rule (IDLE, hello) -> ActionTwo
-DM id 2 tid 1 eid 2 etid 1 c omnetpp::cMessage n hello k 14 pe 2
-CM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n "" pe -1
-CL id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 14 pe 2 cid 6
-BS id 6 tid 5 eid 6 etid 5 c HelloMsg n hello k 14 pe 2
-SH sm 3 sg 1572864 pd 1
-ES t 2
-CL id 6 tid 5 eid 6 etid 5 c HelloMsg n hello k 14 pe 2 cid 7
-CL id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 14 pe 2 cid 7
-BS id 7 tid 5 eid 7 etid 5 c HelloMsg n hello k 14 pe 2
-SH sm 3 sg 1572865 pd 1
-ES t 2
-CL id 7 tid 5 eid 7 etid 5 c HelloMsg n hello k 14 pe 2 cid 8
-CL id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 14 pe 2 cid 8
-BS id 8 tid 5 eid 8 etid 5 c HelloMsg n hello k 14 pe 2
-SH sm 3 sg 1572866 pd 1
-ES t 2
-CL id 8 tid 5 eid 8 etid 5 c HelloMsg n hello k 14 pe 2 cid 9
-BS id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 14 pe 2
-SH sm 3 sg 1572867 pd 1
-ES t 2
-CL id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 14 pe 2 cid 9
-
-E # 3 t 1 m 4 ce 1 msg 3
-MS id 3 d "t=UPDATING\n1;i=device/laptop"
-- INFO:Node[2] meets rule (IDLE, hello) -> ActionTwo
-DM id 3 tid 1 eid 3 etid 1 c omnetpp::cMessage n hello k 14 pe 3
-CM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n "" pe -1
-CL id 9 tid 9 eid 9 etid 9 c HelloMsg n hello k 14 pe 3 cid 10
-BS id 10 tid 9 eid 10 etid 9 c HelloMsg n hello k 14 pe 3
-SH sm 4 sg 1572864 pd 1
-ES t 2
-CL id 10 tid 9 eid 10 etid 9 c HelloMsg n hello k 14 pe 3 cid 11
-BS id 9 tid 9 eid 9 etid 9 c HelloMsg n hello k 14 pe 3
-SH sm 4 sg 1572865 pd 1
-ES t 2
-CL id 9 tid 9 eid 9 etid 9 c HelloMsg n hello k 14 pe 3 cid 11
-
-E # 4 t 1 m 6 ce 1 msg 4
-MS id 4 d "t=UPDATING\n1;i=device/laptop"
-- INFO:Node[4] meets rule (IDLE, hello) -> ActionTwo
-DM id 4 tid 1 eid 4 etid 1 c omnetpp::cMessage n hello k 14 pe 4
-CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n "" pe -1
-CL id 11 tid 11 eid 11 etid 11 c HelloMsg n hello k 14 pe 4 cid 12
-BS id 12 tid 11 eid 12 etid 11 c HelloMsg n hello k 14 pe 4
-SH sm 6 sg 1572864 pd 1
-ES t 2
-CL id 12 tid 11 eid 12 etid 11 c HelloMsg n hello k 14 pe 4 cid 13
-CL id 11 tid 11 eid 11 etid 11 c HelloMsg n hello k 14 pe 4 cid 13
-BS id 13 tid 11 eid 13 etid 11 c HelloMsg n hello k 14 pe 4
-SH sm 6 sg 1572865 pd 1
-ES t 2
-CL id 13 tid 11 eid 13 etid 11 c HelloMsg n hello k 14 pe 4 cid 14
-BS id 11 tid 11 eid 11 etid 11 c HelloMsg n hello k 14 pe 4
-SH sm 6 sg 1572866 pd 1
-ES t 2
-CL id 11 tid 11 eid 11 etid 11 c HelloMsg n hello k 14 pe 4 cid 14
-
-E # 5 t 1 m 7 ce 1 msg 1
-MS id 6 d "t=UPDATING\n1;i=device/laptop"
-- INFO:Node[5] meets rule (IDLE, hello) -> ActionTwo
-DM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n hello k 14 pe 5
-CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n "" pe -1
-CL id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5 cid 15
-BS id 15 tid 14 eid 15 etid 14 c HelloMsg n hello k 14 pe 5
-SH sm 7 sg 1572864 pd 1
-ES t 2
-CL id 15 tid 14 eid 15 etid 14 c HelloMsg n hello k 14 pe 5 cid 16
-CL id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5 cid 16
-BS id 16 tid 14 eid 16 etid 14 c HelloMsg n hello k 14 pe 5
-SH sm 7 sg 1572865 pd 1
-ES t 2
-CL id 16 tid 14 eid 16 etid 14 c HelloMsg n hello k 14 pe 5 cid 17
-CL id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5 cid 17
-BS id 17 tid 14 eid 17 etid 14 c HelloMsg n hello k 14 pe 5
-SH sm 7 sg 1572866 pd 1
-ES t 2
-CL id 17 tid 14 eid 17 etid 14 c HelloMsg n hello k 14 pe 5 cid 18
-CL id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5 cid 18
-BS id 18 tid 14 eid 18 etid 14 c HelloMsg n hello k 14 pe 5
-SH sm 7 sg 1572867 pd 1
-ES t 2
-CL id 18 tid 14 eid 18 etid 14 c HelloMsg n hello k 14 pe 5 cid 19
-BS id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5
-SH sm 7 sg 1572868 pd 1
-ES t 2
-CL id 14 tid 14 eid 14 etid 14 c HelloMsg n hello k 14 pe 5 cid 19
-MS id 7 d "t=UPDATING\n1;i=device/laptop"
-
-E # 6 t 2 m 2 ce 2 msg 6
-- INFO:Node[0] meets rule (UPDATING, hello) -> ActionThree
-DM id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n hello k 14 pe 6
-MS id 2 d "t=UPDATING\n1;i=device/laptop"
-
-E # 7 t 2 m 5 ce 2 msg 7
-- INFO:Node[3] meets rule (IDLE, hello) -> ActionTwo
-DM id 7 tid 5 eid 7 etid 5 c omnetpp::cMessage n hello k 14 pe 7
-CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n "" pe -1
-CL id 19 tid 19 eid 19 etid 19 c HelloMsg n hello k 14 pe 7 cid 20
-BS id 20 tid 19 eid 20 etid 19 c HelloMsg n hello k 14 pe 7
-SH sm 5 sg 1572864 pd 1
-ES t 3
-CL id 20 tid 19 eid 20 etid 19 c HelloMsg n hello k 14 pe 7 cid 21
-BS id 19 tid 19 eid 19 etid 19 c HelloMsg n hello k 14 pe 7
-SH sm 5 sg 1572865 pd 1
-ES t 3
-CL id 19 tid 19 eid 19 etid 19 c HelloMsg n hello k 14 pe 7 cid 21
-
-E # 8 t 2 m 6 ce 2 msg 8
-MS id 5 d "t=UPDATING\n1;i=device/laptop"
-- INFO:Node[4] meets rule (UPDATING, hello) -> ActionThree
-DM id 8 tid 5 eid 8 etid 5 c omnetpp::cMessage n hello k 14 pe 8
-
-E # 9 t 2 m 7 ce 2 msg 5
-MS id 6 d "t=UPDATING\n2;i=device/laptop"
-- INFO:Node[5] meets rule (UPDATING, hello) -> ActionThree
-DM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n hello k 14 pe 9
-
-E # 10 t 2 m 2 ce 3 msg 10
-MS id 7 d "t=UPDATING\n2;i=device/laptop"
-- INFO:Node[0] meets rule (UPDATING, hello) -> ActionThree
-DM id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n hello k 14 pe 10
-
-E # 11 t 2 m 7 ce 3 msg 9
-MS id 2 d "t=UPDATING\n2;i=device/laptop"
-- INFO:Node[5] meets rule (UPDATING, hello) -> ActionThree
-DM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n hello k 14 pe 11
-
-E # 12 t 2 m 2 ce 4 msg 12
-MS id 7 d "t=UPDATING\n3;i=device/laptop"
-- INFO:Node[0] meets rule (UPDATING, hello) -> ActionThree
-DM id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n hello k 14 pe 12
-
-E # 13 t 2 m 3 ce 4 msg 13
-MS id 2 d "t=UPDATING\n3;i=device/laptop"
-- INFO:Node[1] meets rule (UPDATING, hello) -> ActionThree
-DM id 13 tid 11 eid 13 etid 11 c omnetpp::cMessage n hello k 14 pe 13
-
-E # 14 t 2 m 7 ce 4 msg 11
-MS id 3 d "t=UPDATING\n2;i=device/laptop"
-- INFO:Node[5] meets rule (UPDATING, hello) -> ActionThree
-DM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n hello k 14 pe 14
-
-E # 15 t 2 m 2 ce 5 msg 15
-MS id 7 d "t=UPDATING\n4;i=device/laptop"
-- INFO:Node[0] meets rule (UPDATING, hello) -> ActionThree
-DM id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n hello k 14 pe 15
-
-E # 16 t 2 m 3 ce 5 msg 16
-MS id 2 d "t=PROCESSING\n4;i=device/laptop"
-- INFO:Node[1] meets rule (UPDATING, hello) -> ActionThree
-DM id 16 tid 14 eid 16 etid 14 c omnetpp::cMessage n hello k 14 pe 16
-
-E # 17 t 2 m 4 ce 5 msg 17
-MS id 3 d "t=UPDATING\n3;i=device/laptop"
-- INFO:Node[2] meets rule (UPDATING, hello) -> ActionThree
-DM id 17 tid 14 eid 17 etid 14 c omnetpp::cMessage n hello k 14 pe 17
-
-E # 18 t 2 m 5 ce 5 msg 18
-MS id 4 d "t=PROCESSING\n2;i=device/laptop"
-- INFO:Node[3] meets rule (UPDATING, hello) -> ActionThree
-DM id 18 tid 14 eid 18 etid 14 c omnetpp::cMessage n hello k 14 pe 18
-
-E # 19 t 2 m 6 ce 5 msg 14
-MS id 5 d "t=PROCESSING\n2;i=device/laptop"
-- INFO:Node[4] meets rule (UPDATING, hello) -> ActionThree
-DM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n hello k 14 pe 19
-MS id 6 d "t=PROCESSING\n3;i=device/laptop"
-
-E # 20 t 3 m 3 ce 7 msg 20
-- INFO:Node[1] meets rule (UPDATING, hello) -> ActionThree
-DM id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n hello k 14 pe 20
-MS id 3 d "t=PROCESSING\n4;i=device/laptop"
-
-E # 21 t 3 m 7 ce 7 msg 19
-- INFO:Node[5] meets rule (UPDATING, hello) -> ActionThree
-DM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n hello k 14 pe 21
-SE e 0 c 13 m "No more events, simulation completed -- at t=3s, event #21"
+CL id 74 tid 70 eid 74 etid 70 c HelloMsg n hquery k 15 pe 1 cid 75
+DM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n hquery k 15 pe 1
+MS id 2 d "t=UPDATING\n0 0 4\n;i=device/laptop"

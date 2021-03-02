@@ -30,12 +30,24 @@ PROJECTRELATIVE_PATH = src
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/BaseNode.o $O/MegaMerger.o $O/Status.o $O/HelloMsg_m.o $O/MegaMerger_m.o
+OBJS = \
+    $O/BaseNode.o \
+    $O/Edge.o \
+    $O/MegaMerger.o \
+    $O/Status.o \
+    $O/CheckMsg_m.o \
+    $O/HelloMsg_m.o \
+    $O/MegaMerger_m.o \
+    $O/MinMsg_m.o \
+    $O/QueryMsg_m.o
 
 # Message files
 MSGFILES = \
+    CheckMsg.msg \
     HelloMsg.msg \
-    MegaMerger.msg
+    MegaMerger.msg \
+    MinMsg.msg \
+    QueryMsg.msg
 
 # SM files
 SMFILES =
