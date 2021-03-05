@@ -19,12 +19,15 @@
 		"Add action class": {
 			"prefix": "action",
 			"body": [
-				"class ${1:Namespace}::Action${2:name} : public BaseAction {", 
+				"class ${1:Namespace}::${2:ActionName} : public BaseAction {", 
 				"private:",
-				"\t${1:Namespace}* node;",
+				"\t${1:Namespace}* ap;",
 				"public:",
-				"\tAction${2:name}(${1:Namespace}* n) : BaseAction(\"Action${2:name}\"), node(n) { }",
-				"\tvoid operator()(${3:EventPtr});", 
+				"\t${2:ActionName}(${1:Namespace}* ptr)",
+				"\t\t: BaseAction(\"${2:ActionName}\")",
+				"\t\t, ap(ptr)",
+				"{ }",
+				"\tvoid operator()(${3:Msg}*);", 
 				"};",
 				"$0"
 			],
@@ -33,7 +36,7 @@
 		"Add operator() definition" :{
 			"prefix": "operator",
 			"body": [
-				"void ${1:Namespace}::${2:Classname}::operator()(${3:EventPtr} ${4:ptr}) {",
+				"void ${1:Namespace}::${2:Classname}::operator()(${3:Msg}* ${4:msg}) {",
 				"\t$0",
 				"}"
 			],
@@ -100,6 +103,6 @@
 			"body": [
 				"/** @brief $1 */$0",
 			],
-			"description": "Adds a bried comment"
+			"description": "Adds a brief comment"
 		}
 }

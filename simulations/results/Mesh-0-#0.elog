@@ -1,5 +1,5 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1286 rid Mesh-0-20210302-04:39:05-3367 b 1000
+SB v 1286 rid Mesh-0-20210305-01:38:37-28653 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t dsbase.simulations.Mesh n Mesh cm 1
 MS id 1 d bgb=300,300
@@ -156,8 +156,8 @@ CS sm 7 sg 1572868 d t=1.0
 CS sm 7 sg 1572868 d t=1.0,l
 CS sm 7 sg 1572868 d t=1.0,l,black
 MB sm 1 tm 2 m initialize(0)
-CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n spontaneuosly pe -1
-BS id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n spontaneuosly pe 0
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n spontaneuosly pe -1
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n spontaneuosly pe 0
 ES t 0
 ME
 MB sm 1 tm 3 m initialize(0)
@@ -170,55 +170,357 @@ MB sm 1 tm 6 m initialize(0)
 ME
 MB sm 1 tm 7 m initialize(0)
 ME
-MS id 2 d "t=IDLE\n-1 0 4\n;i=device/laptop"
-CS sm 2 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 2 sg 1572865 d ls=red;t=1.0,l,black
-CS sm 2 sg 1572866 d ls=red;t=1.0,l,black
-CS sm 2 sg 1572867 d ls=red;t=1.0,l,black
-MS id 3 d "t=IDLE\n-1 0 4\n;i=device/laptop"
-CS sm 3 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 3 sg 1572865 d ls=red;t=1.0,l,black
-CS sm 3 sg 1572866 d ls=red;t=1.0,l,black
-CS sm 3 sg 1572867 d ls=red;t=1.0,l,black
-MS id 4 d "t=IDLE\n-1 0 2\n;i=device/laptop"
-CS sm 4 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 4 sg 1572865 d ls=red;t=1.0,l,black
-MS id 5 d "t=IDLE\n-1 0 2\n;i=device/laptop"
-CS sm 5 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 5 sg 1572865 d ls=red;t=1.0,l,black
-MS id 6 d "t=IDLE\n-1 0 3\n;i=device/laptop"
-CS sm 6 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 6 sg 1572865 d ls=red;t=1.0,l,black
-CS sm 6 sg 1572866 d ls=red;t=1.0,l,black
-MS id 7 d "t=IDLE\n-1 0 5\n;i=device/laptop"
-CS sm 7 sg 1572864 d ls=red;t=1.0,l,black
-CS sm 7 sg 1572865 d ls=red;t=1.0,l,black
-CS sm 7 sg 1572866 d ls=red;t=1.0,l,black
-CS sm 7 sg 1572867 d ls=red;t=1.0,l,black
-CS sm 7 sg 1572868 d ls=red;t=1.0,l,black
+MS id 2 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 2 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 2 sg 1572865 d ls=black;t=1.0,l,black
+CS sm 2 sg 1572866 d ls=black;t=1.0,l,black
+CS sm 2 sg 1572867 d ls=black;t=1.0,l,black
+MS id 3 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 3 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 3 sg 1572865 d ls=black;t=1.0,l,black
+CS sm 3 sg 1572866 d ls=black;t=1.0,l,black
+CS sm 3 sg 1572867 d ls=black;t=1.0,l,black
+MS id 4 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 4 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 4 sg 1572865 d ls=black;t=1.0,l,black
+MS id 5 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 5 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 5 sg 1572865 d ls=black;t=1.0,l,black
+MS id 6 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 6 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 6 sg 1572865 d ls=black;t=1.0,l,black
+CS sm 6 sg 1572866 d ls=black;t=1.0,l,black
+MS id 7 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 7 sg 1572864 d ls=black;t=1.0,l,black
+CS sm 7 sg 1572865 d ls=black;t=1.0,l,black
+CS sm 7 sg 1572866 d ls=black;t=1.0,l,black
+CS sm 7 sg 1572867 d ls=black;t=1.0,l,black
+CS sm 7 sg 1572868 d ls=black;t=1.0,l,black
 
-E # 1 t 0 m 2 ce 0 msg 69
-- INFO:Node[0] meets rule (IDLE, spontaneuosly) -> WakeUp
-CM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n "" pe -1
-CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 71
-BS id 71 tid 70 eid 71 etid 70 c HelloMsg n hquery k 15 pe 1
-SH sm 2 sg 1572864 pd 1
-ES t 1
-CL id 71 tid 70 eid 71 etid 70 c HelloMsg n hquery k 15 pe 1 cid 72
-CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 72
-BS id 72 tid 70 eid 72 etid 70 c HelloMsg n hquery k 15 pe 1
+E # 1 t 0 m 2 ce 0 msg 0
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n "" pe -1
+CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 10 pe 1 cid 2
+BS id 2 tid 1 eid 2 etid 1 c HelloMsg n hello k 10 pe 1
 SH sm 2 sg 1572865 pd 1
 ES t 1
-CL id 72 tid 70 eid 72 etid 70 c HelloMsg n hquery k 15 pe 1 cid 73
-CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 73
-BS id 73 tid 70 eid 73 etid 70 c HelloMsg n hquery k 15 pe 1
+CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 10 pe 1 cid 3
+BS id 3 tid 1 eid 3 etid 1 c HelloMsg n hello k 10 pe 1
 SH sm 2 sg 1572866 pd 1
 ES t 1
-CL id 73 tid 70 eid 73 etid 70 c HelloMsg n hquery k 15 pe 1 cid 74
-CL id 70 tid 70 eid 70 etid 70 c HelloMsg n hquery k 15 pe 1 cid 74
-BS id 74 tid 70 eid 74 etid 70 c HelloMsg n hquery k 15 pe 1
+CL id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 10 pe 1 cid 4
+BS id 4 tid 1 eid 4 etid 1 c HelloMsg n hello k 10 pe 1
 SH sm 2 sg 1572867 pd 1
 ES t 1
-CL id 74 tid 70 eid 74 etid 70 c HelloMsg n hquery k 15 pe 1 cid 75
-DM id 70 tid 70 eid 70 etid 70 c omnetpp::cMessage n hquery k 15 pe 1
-MS id 2 d "t=UPDATING\n0 0 4\n;i=device/laptop"
+BS id 1 tid 1 eid 1 etid 1 c HelloMsg n hello k 10 pe 1
+SH sm 2 sg 1572864 pd 1
+ES t 1
+
+E # 2 t 1 m 4 ce 1 msg 2
+CM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n "" pe -1
+CL id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 10 pe 2 cid 6
+BS id 6 tid 5 eid 6 etid 5 c HelloMsg n hello k 10 pe 2
+SH sm 4 sg 1572865 pd 1
+ES t 2
+BS id 5 tid 5 eid 5 etid 5 c HelloMsg n hello k 10 pe 2
+SH sm 4 sg 1572864 pd 1
+ES t 2
+DM id 2 tid 1 eid 2 etid 1 c omnetpp::cMessage n hello k 10 pe 2
+
+E # 3 t 1 m 6 ce 1 msg 3
+CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n "" pe -1
+CL id 7 tid 7 eid 7 etid 7 c HelloMsg n hello k 10 pe 3 cid 8
+BS id 8 tid 7 eid 8 etid 7 c HelloMsg n hello k 10 pe 3
+SH sm 6 sg 1572865 pd 1
+ES t 2
+CL id 7 tid 7 eid 7 etid 7 c HelloMsg n hello k 10 pe 3 cid 9
+BS id 9 tid 7 eid 9 etid 7 c HelloMsg n hello k 10 pe 3
+SH sm 6 sg 1572866 pd 1
+ES t 2
+BS id 7 tid 7 eid 7 etid 7 c HelloMsg n hello k 10 pe 3
+SH sm 6 sg 1572864 pd 1
+ES t 2
+DM id 3 tid 1 eid 3 etid 1 c omnetpp::cMessage n hello k 10 pe 3
+
+E # 4 t 1 m 7 ce 1 msg 4
+CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n "" pe -1
+CL id 10 tid 10 eid 10 etid 10 c HelloMsg n hello k 10 pe 4 cid 11
+BS id 11 tid 10 eid 11 etid 10 c HelloMsg n hello k 10 pe 4
+SH sm 7 sg 1572865 pd 1
+ES t 2
+CL id 10 tid 10 eid 10 etid 10 c HelloMsg n hello k 10 pe 4 cid 12
+BS id 12 tid 10 eid 12 etid 10 c HelloMsg n hello k 10 pe 4
+SH sm 7 sg 1572866 pd 1
+ES t 2
+CL id 10 tid 10 eid 10 etid 10 c HelloMsg n hello k 10 pe 4 cid 13
+BS id 13 tid 10 eid 13 etid 10 c HelloMsg n hello k 10 pe 4
+SH sm 7 sg 1572867 pd 1
+ES t 2
+CL id 10 tid 10 eid 10 etid 10 c HelloMsg n hello k 10 pe 4 cid 14
+BS id 14 tid 10 eid 14 etid 10 c HelloMsg n hello k 10 pe 4
+SH sm 7 sg 1572868 pd 1
+ES t 2
+BS id 10 tid 10 eid 10 etid 10 c HelloMsg n hello k 10 pe 4
+SH sm 7 sg 1572864 pd 1
+ES t 2
+DM id 4 tid 1 eid 4 etid 1 c omnetpp::cMessage n hello k 10 pe 4
+
+E # 5 t 1 m 3 ce 1 msg 1
+CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n "" pe -1
+CL id 15 tid 15 eid 15 etid 15 c HelloMsg n hello k 10 pe 5 cid 16
+BS id 16 tid 15 eid 16 etid 15 c HelloMsg n hello k 10 pe 5
+SH sm 3 sg 1572865 pd 1
+ES t 2
+CL id 15 tid 15 eid 15 etid 15 c HelloMsg n hello k 10 pe 5 cid 17
+BS id 17 tid 15 eid 17 etid 15 c HelloMsg n hello k 10 pe 5
+SH sm 3 sg 1572866 pd 1
+ES t 2
+CL id 15 tid 15 eid 15 etid 15 c HelloMsg n hello k 10 pe 5 cid 18
+BS id 18 tid 15 eid 18 etid 15 c HelloMsg n hello k 10 pe 5
+SH sm 3 sg 1572867 pd 1
+ES t 2
+BS id 15 tid 15 eid 15 etid 15 c HelloMsg n hello k 10 pe 5
+SH sm 3 sg 1572864 pd 1
+ES t 2
+DM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n hello k 10 pe 5
+
+E # 6 t 2 m 7 ce 2 msg 6
+DM id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n hello k 10 pe 6
+
+E # 7 t 2 m 2 ce 2 msg 5
+DM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n hello k 10 pe 7
+
+E # 8 t 2 m 3 ce 3 msg 8
+DM id 8 tid 7 eid 8 etid 7 c omnetpp::cMessage n hello k 10 pe 8
+
+E # 9 t 2 m 7 ce 3 msg 9
+DM id 9 tid 7 eid 9 etid 7 c omnetpp::cMessage n hello k 10 pe 9
+
+E # 10 t 2 m 2 ce 3 msg 7
+DM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n hello k 10 pe 10
+
+E # 11 t 2 m 3 ce 4 msg 11
+DM id 11 tid 10 eid 11 etid 10 c omnetpp::cMessage n hello k 10 pe 11
+
+E # 12 t 2 m 4 ce 4 msg 12
+CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n "" pe -1
+BS id 19 tid 19 eid 19 etid 19 c ReqMsg n req k 3 pe 12
+SH sm 4 sg 1572864 pd 1
+ES t 3
+DM id 12 tid 10 eid 12 etid 10 c omnetpp::cMessage n hello k 10 pe 12
+
+E # 13 t 2 m 5 ce 4 msg 13
+CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n "" pe -1
+CL id 20 tid 20 eid 20 etid 20 c HelloMsg n hello k 10 pe 13 cid 21
+BS id 21 tid 20 eid 21 etid 20 c HelloMsg n hello k 10 pe 13
+SH sm 5 sg 1572865 pd 1
+ES t 3
+BS id 20 tid 20 eid 20 etid 20 c HelloMsg n hello k 10 pe 13
+SH sm 5 sg 1572864 pd 1
+ES t 3
+DM id 13 tid 10 eid 13 etid 10 c omnetpp::cMessage n hello k 10 pe 13
+
+E # 14 t 2 m 6 ce 4 msg 14
+DM id 14 tid 10 eid 14 etid 10 c omnetpp::cMessage n hello k 10 pe 14
+
+E # 15 t 2 m 2 ce 4 msg 10
+DM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n hello k 10 pe 15
+
+E # 16 t 2 m 5 ce 5 msg 16
+CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n "" pe -1
+BS id 22 tid 22 eid 22 etid 22 c ReqMsg n req k 3 pe 16
+SH sm 5 sg 1572864 pd 1
+ES t 3
+DM id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n hello k 10 pe 16
+
+E # 17 t 2 m 6 ce 5 msg 17
+CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n "" pe -1
+BS id 23 tid 23 eid 23 etid 23 c ReqMsg n req k 3 pe 17
+SH sm 6 sg 1572864 pd 1
+ES t 3
+DM id 17 tid 15 eid 17 etid 15 c omnetpp::cMessage n hello k 10 pe 17
+
+E # 18 t 2 m 7 ce 5 msg 18
+DM id 18 tid 15 eid 18 etid 15 c omnetpp::cMessage n hello k 10 pe 18
+
+E # 19 t 2 m 2 ce 5 msg 15
+CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n "" pe -1
+BS id 24 tid 24 eid 24 etid 24 c ReqMsg n req k 3 pe 19
+SH sm 2 sg 1572864 pd 1
+ES t 3
+DM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n hello k 10 pe 19
+
+E # 20 t 3 m 2 ce 12 msg 19
+
+E # 21 t 3 m 7 ce 13 msg 21
+CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n "" pe -1
+BS id 25 tid 25 eid 25 etid 25 c ReqMsg n req k 3 pe 21
+SH sm 7 sg 1572864 pd 1
+ES t 4
+DM id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n hello k 10 pe 21
+
+E # 22 t 3 m 3 ce 13 msg 20
+CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n "" pe -1
+BS id 26 tid 26 eid 26 etid 26 c ReqMsg n req k 3 pe 22
+SH sm 3 sg 1572864 pd 1
+ES t 4
+DM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n hello k 10 pe 22
+
+E # 23 t 3 m 3 ce 16 msg 22
+
+E # 24 t 3 m 2 ce 17 msg 23
+
+E # 25 t 3 m 3 ce 19 msg 24
+CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n "" pe -1
+DM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n check k 8 pe 25
+CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n "" pe -1
+BS id 28 tid 28 eid 28 etid 28 c CheckMsg n check k 8 pe 25
+SH sm 3 sg 1572865 pd 1
+ES t 4
+DM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n req k 3 pe 23
+CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n "" pe -1
+BS id 29 tid 29 eid 29 etid 29 c QueryMsg n query k 5 pe 25
+SH sm 3 sg 1572866 pd 1
+ES t 4
+DM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n req k 3 pe 25
+
+E # 26 t 4 m 2 ce 21 msg 25
+
+E # 27 t 4 m 2 ce 22 msg 26
+CM id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n "" pe -1
+DM id 30 tid 30 eid 30 etid 30 c omnetpp::cMessage n check k 8 pe 27
+CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n "" pe -1
+BS id 31 tid 31 eid 31 etid 31 c CheckMsg n check k 8 pe 27
+SH sm 2 sg 1572865 pd 1
+ES t 5
+DM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n req k 3 pe 20
+CM id 32 tid 32 eid 32 etid 32 c omnetpp::cMessage n "" pe -1
+BS id 32 tid 32 eid 32 etid 32 c CheckMsg n check k 8 pe 27
+SH sm 2 sg 1572866 pd 1
+ES t 5
+DM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n req k 3 pe 24
+CM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n "" pe -1
+BS id 33 tid 33 eid 33 etid 33 c CheckMsg n check k 8 pe 27
+SH sm 2 sg 1572867 pd 1
+ES t 5
+DM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n req k 3 pe 26
+DM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n req k 3 pe 27
+
+E # 28 t 4 m 5 ce 25 msg 28
+DM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n check k 8 pe 28
+CM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n "" pe -1
+BS id 34 tid 34 eid 34 etid 34 c QueryMsg n query k 5 pe 28
+SH sm 5 sg 1572865 pd 1
+ES t 5
+
+E # 29 t 4 m 6 ce 25 msg 29
+
+E # 30 t 5 m 4 ce 27 msg 31
+DM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n check k 8 pe 30
+CM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n "" pe -1
+BS id 35 tid 35 eid 35 etid 35 c QueryMsg n query k 5 pe 30
+SH sm 4 sg 1572865 pd 1
+ES t 6
+
+E # 31 t 5 m 6 ce 27 msg 32
+DM id 32 tid 32 eid 32 etid 32 c omnetpp::cMessage n check k 8 pe 31
+CM id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n no k 7 pe -1
+BS id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n no k 7 pe 31
+SH sm 6 sg 1572865 pd 1
+ES t 6
+DM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n query k 5 pe 29
+CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n "" pe -1
+BS id 37 tid 37 eid 37 etid 37 c QueryMsg n query k 5 pe 31
+SH sm 6 sg 1572866 pd 1
+ES t 6
+
+E # 32 t 5 m 7 ce 27 msg 33
+DM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n check k 8 pe 32
+CM id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n "" pe -1
+BS id 38 tid 38 eid 38 etid 38 c QueryMsg n query k 5 pe 32
+SH sm 7 sg 1572865 pd 1
+ES t 6
+
+E # 33 t 5 m 7 ce 28 msg 34
+CM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n no k 7 pe -1
+BS id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n no k 7 pe 33
+SH sm 7 sg 1572867 pd 1
+ES t 6
+DM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n query k 5 pe 33
+
+E # 34 t 6 m 7 ce 30 msg 35
+CM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n no k 7 pe -1
+BS id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n no k 7 pe 34
+SH sm 7 sg 1572866 pd 1
+ES t 7
+DM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n query k 5 pe 34
+
+E # 35 t 6 m 3 ce 31 msg 36
+CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n "" pe -1
+BS id 41 tid 41 eid 41 etid 41 c QueryMsg n query k 5 pe 35
+SH sm 3 sg 1572867 pd 1
+ES t 7
+DM id 36 tid 36 eid 36 etid 36 c omnetpp::cMessage n no k 7 pe 35
+
+E # 36 t 6 m 7 ce 31 msg 37
+CM id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n no k 7 pe -1
+BS id 42 tid 42 eid 42 etid 42 c omnetpp::cMessage n no k 7 pe 36
+SH sm 7 sg 1572868 pd 1
+ES t 7
+DM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n query k 5 pe 36
+
+E # 37 t 6 m 3 ce 32 msg 38
+DM id 38 tid 38 eid 38 etid 38 c omnetpp::cMessage n query k 5 pe 37
+
+E # 38 t 6 m 5 ce 33 msg 39
+CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n "" pe -1
+BS id 43 tid 43 eid 43 etid 43 c MinMsg n min k 11 pe 38
+SH sm 5 sg 1572864 pd 1
+ES t 7
+DM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n no k 7 pe 38
+MS id 2 d "t=PROCESSING\n0 1\n;i=device/laptop"
+CS sm 2 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 2 sg 1572864 d ls=teal,4;t=1.0,l,black
+CS sm 2 sg 1572865 d ls=teal;t=1.0,l,black
+CS sm 2 sg 1572865 d ls=teal,4;t=1.0,l,black
+CS sm 2 sg 1572866 d ls=teal;t=1.0,l,black
+CS sm 2 sg 1572866 d ls=teal,4;t=1.0,l,black
+CS sm 2 sg 1572867 d ls=teal;t=1.0,l,black
+CS sm 2 sg 1572867 d ls=teal,4;t=1.0,l,black
+MS id 3 d "t=PROCESSING\n0 1\n;i=device/laptop"
+CS sm 3 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 3 sg 1572864 d ls=teal,4;t=1.0,l,black
+CS sm 3 sg 1572865 d ls=teal;t=1.0,l,black
+CS sm 3 sg 1572865 d ls=teal,4;t=1.0,l,black
+CS sm 3 sg 1572866 d ls=teal;t=1.0,l,black
+CS sm 3 sg 1572866 d ls=teal,4;t=1.0,l,black
+CS sm 3 sg 1572866 d ls=teal,4,da;t=1.0,l,black
+CS sm 3 sg 1572867 d ls=teal;t=1.0,l,black
+CS sm 3 sg 1572867 d ls=teal,4;t=1.0,l,black
+CS sm 3 sg 1572867 d ls=teal,4,da;t=1.0,l,black
+MS id 4 d "t=UPDATING\n0 1\n;i=device/laptop"
+CS sm 4 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 4 sg 1572864 d ls=teal,4;t=1.0,l,black
+MS id 5 d "t=CONNECTING\n0 1\n;i=device/laptop"
+CS sm 5 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 5 sg 1572864 d ls=teal,4;t=1.0,l,black
+CS sm 5 sg 1572865 d ls=teal;t=1.0,l,black
+CS sm 5 sg 1572865 d ls=teal,4;t=1.0,l,black
+CS sm 5 sg 1572865 d ls=teal,4,da;t=1.0,l,black
+MS id 6 d "t=UPDATING\n0 1\n;i=device/laptop"
+CS sm 6 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 6 sg 1572864 d ls=teal,4;t=1.0,l,black
+CS sm 6 sg 1572865 d ls=teal;t=1.0,l,black
+CS sm 6 sg 1572865 d ls=teal,4;t=1.0,l,black
+CS sm 6 sg 1572865 d ls=teal,4,da;t=1.0,l,black
+MS id 7 d "t=UPDATING\n0 1\n;i=device/laptop"
+CS sm 7 sg 1572864 d ls=teal;t=1.0,l,black
+CS sm 7 sg 1572864 d ls=teal,4;t=1.0,l,black
+CS sm 7 sg 1572866 d ls=teal;t=1.0,l,black
+CS sm 7 sg 1572866 d ls=teal,4;t=1.0,l,black
+CS sm 7 sg 1572866 d ls=teal,4,da;t=1.0,l,black
+CS sm 7 sg 1572867 d ls=teal;t=1.0,l,black
+CS sm 7 sg 1572867 d ls=teal,4;t=1.0,l,black
+CS sm 7 sg 1572867 d ls=teal,4,da;t=1.0,l,black
+CS sm 7 sg 1572868 d ls=teal;t=1.0,l,black
+CS sm 7 sg 1572868 d ls=teal,4;t=1.0,l,black
+CS sm 7 sg 1572868 d ls=teal,4,da;t=1.0,l,black

@@ -39,7 +39,8 @@ OBJS = \
     $O/HelloMsg_m.o \
     $O/MegaMerger_m.o \
     $O/MinMsg_m.o \
-    $O/QueryMsg_m.o
+    $O/QueryMsg_m.o \
+    $O/ReqMsg_m.o
 
 # Message files
 MSGFILES = \
@@ -47,7 +48,8 @@ MSGFILES = \
     HelloMsg.msg \
     MegaMerger.msg \
     MinMsg.msg \
-    QueryMsg.msg
+    QueryMsg.msg \
+    ReqMsg.msg
 
 # SM files
 SMFILES =

@@ -3,11 +3,11 @@
 Register_Abstract_Class(BaseNode);
 
 omnetpp::cMessage* BaseNode::localBroadcast(omnetpp::cMessage* msg) {
-  int n = gateSize("port$o");
+  int n = gateSize(out);
   if (msg && n > 0) {
     for (int i = 0; i < n -1; i++)
-      send(msg->dup(), "port$o", i);
-    send(msg, "port$o", n-1);
+      send(msg->dup(), out, i);
+    send(msg, out, n-1);
   }
   return msg;
 }
@@ -15,11 +15,11 @@ omnetpp::cMessage* BaseNode::localBroadcast(omnetpp::cMessage* msg) {
 omnetpp::cMessage* BaseNode::localFlooding(omnetpp::cMessage* msg) {
   if (msg->getArrivalGate()) {
     int senderID = msg->getArrivalGate()->getIndex();
-    int n = gateSize("port$o");
+    int n = gateSize(out);
     if (msg && n > 0) {
       for (int i = 0; i < n; i++)
         if (i != senderID)
-          send(msg->dup(), "port$o", i);
+          send(msg->dup(), out, i);
       delete msg;
     }
     return msg;
@@ -35,20 +35,35 @@ omnetpp::cMessage* BaseNode::localMulticast(
   omnetpp::cMessage* msg,
   const std::vector<int>& destination
 ) {
-  if (msg && !destination.empty()) {
-    for (auto&& port : destination)
-      send(msg->dup(), "port$o", port);
-    delete msg;
+  if (msg) {
+    if (!destination.empty()) {
+      for (auto&& port : destination)
+        send(msg->dup(), out, port);
+      delete msg;
+    }
+    else
+      delete msg;
   }
   return msg;
 }
 
 void BaseNode::changeEdgeColor(int p, const char* color) const {
-  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 0, color);
+  gate(out, p)->getChannel()->getDisplayString().setTagArg("ls", 0, color);
 }
 
 void BaseNode::changeEdgeWidth(int p, int width) const {
-  gate("port$o", p)->getChannel()->getDisplayString().setTagArg("ls", 1, width);
+  gate(out, p)->getChannel()->getDisplayString().setTagArg("ls", 1, width);
+}
+void BaseNode::setEdgeDotted(int p) const {
+  gate(out, p)->getChannel()->getDisplayString().setTagArg("ls", 2, "d");
+}
+
+void BaseNode::setEdgeDashed(int p) const {
+  gate(out, p)->getChannel()->getDisplayString().setTagArg("ls", 2, "da");
+}
+
+void BaseNode::setEdgeSolid(int p) const {
+  gate(out, p)->getChannel()->getDisplayString().setTagArg("ls", 2, "s");
 }
 
 void BaseNode::spontaneously() {
@@ -58,7 +73,7 @@ void BaseNode::spontaneously() {
 
 void BaseNode::setTimer(omnetpp::simtime_t t) {
   if (!timeout)
-    timeout = new omnetpp::cMessage("timer", EventKind::TIMER);
+    timeout = new omnetpp::cMessage("timer", EventKind::TIMEOUT);
   if (!timeout->isScheduled())
     scheduleAt(omnetpp::simTime() + t, timeout);
   else

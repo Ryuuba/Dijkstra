@@ -29,18 +29,14 @@
  * {
  *     name = "hello";
  *     kind = EventKind::HELLO;
- *     int id;
- *     int cid;
- *     int level;
+ *     int uid;
  * }
  * </pre>
  */
 class HelloMsg : public ::omnetpp::cMessage
 {
   protected:
-    int id;
-    int cid;
-    int level;
+    int uid;
 
   private:
     void copy(const HelloMsg& other);
@@ -59,12 +55,8 @@ class HelloMsg : public ::omnetpp::cMessage
     virtual void parsimUnpack(omnetpp::cCommBuffer *b) override;
 
     // field getter/setter methods
-    virtual int getId() const;
-    virtual void setId(int id);
-    virtual int getCid() const;
-    virtual void setCid(int cid);
-    virtual int getLevel() const;
-    virtual void setLevel(int level);
+    virtual int getUid() const;
+    virtual void setUid(int uid);
 };
 
 inline void doParsimPacking(omnetpp::cCommBuffer *b, const HelloMsg& obj) {obj.parsimPack(b);}

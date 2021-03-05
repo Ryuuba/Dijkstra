@@ -184,7 +184,7 @@ MinMsg::MinMsg(const char *name, short kind) : ::omnetpp::cMessage(name,kind)
     this->setName("min");
     this->setKind(EventKind::MIN);
 
-    this->id = 0;
+    this->uid = 0;
     this->weight = 0;
     this->minUid = 0;
     this->maxUid = 0;
@@ -209,7 +209,7 @@ MinMsg& MinMsg::operator=(const MinMsg& other)
 
 void MinMsg::copy(const MinMsg& other)
 {
-    this->id = other.id;
+    this->uid = other.uid;
     this->weight = other.weight;
     this->minUid = other.minUid;
     this->maxUid = other.maxUid;
@@ -218,7 +218,7 @@ void MinMsg::copy(const MinMsg& other)
 void MinMsg::parsimPack(omnetpp::cCommBuffer *b) const
 {
     ::omnetpp::cMessage::parsimPack(b);
-    doParsimPacking(b,this->id);
+    doParsimPacking(b,this->uid);
     doParsimPacking(b,this->weight);
     doParsimPacking(b,this->minUid);
     doParsimPacking(b,this->maxUid);
@@ -227,20 +227,20 @@ void MinMsg::parsimPack(omnetpp::cCommBuffer *b) const
 void MinMsg::parsimUnpack(omnetpp::cCommBuffer *b)
 {
     ::omnetpp::cMessage::parsimUnpack(b);
-    doParsimUnpacking(b,this->id);
+    doParsimUnpacking(b,this->uid);
     doParsimUnpacking(b,this->weight);
     doParsimUnpacking(b,this->minUid);
     doParsimUnpacking(b,this->maxUid);
 }
 
-int MinMsg::getId() const
+int MinMsg::getUid() const
 {
-    return this->id;
+    return this->uid;
 }
 
-void MinMsg::setId(int id)
+void MinMsg::setUid(int uid)
 {
-    this->id = id;
+    this->uid = uid;
 }
 
 double MinMsg::getWeight() const
@@ -367,7 +367,7 @@ const char *MinMsgDescriptor::getFieldName(int field) const
         field -= basedesc->getFieldCount();
     }
     static const char *fieldNames[] = {
-        "id",
+        "uid",
         "weight",
         "minUid",
         "maxUid",
@@ -379,7 +379,7 @@ int MinMsgDescriptor::findField(const char *fieldName) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount() : 0;
-    if (fieldName[0]=='i' && strcmp(fieldName, "id")==0) return base+0;
+    if (fieldName[0]=='u' && strcmp(fieldName, "uid")==0) return base+0;
     if (fieldName[0]=='w' && strcmp(fieldName, "weight")==0) return base+1;
     if (fieldName[0]=='m' && strcmp(fieldName, "minUid")==0) return base+2;
     if (fieldName[0]=='m' && strcmp(fieldName, "maxUid")==0) return base+3;
@@ -467,7 +467,7 @@ std::string MinMsgDescriptor::getFieldValueAsString(void *object, int field, int
     }
     MinMsg *pp = (MinMsg *)object; (void)pp;
     switch (field) {
-        case 0: return long2string(pp->getId());
+        case 0: return long2string(pp->getUid());
         case 1: return double2string(pp->getWeight());
         case 2: return long2string(pp->getMinUid());
         case 3: return long2string(pp->getMaxUid());
@@ -485,7 +485,7 @@ bool MinMsgDescriptor::setFieldValueAsString(void *object, int field, int i, con
     }
     MinMsg *pp = (MinMsg *)object; (void)pp;
     switch (field) {
-        case 0: pp->setId(string2long(value)); return true;
+        case 0: pp->setUid(string2long(value)); return true;
         case 1: pp->setWeight(string2double(value)); return true;
         case 2: pp->setMinUid(string2long(value)); return true;
         case 3: pp->setMaxUid(string2long(value)); return true;

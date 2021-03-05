@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by nedtool 5.6 from HelloMsg.msg.
+// Generated file, do not edit! Created by nedtool 5.6 from ReqMsg.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -26,7 +26,7 @@
 
 #include <iostream>
 #include <sstream>
-#include "HelloMsg_m.h"
+#include "ReqMsg_m.h"
 
 namespace omnetpp {
 
@@ -177,26 +177,27 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T,A>& vec)
     return out;
 }
 
-Register_Class(HelloMsg)
+Register_Class(ReqMsg)
 
-HelloMsg::HelloMsg(const char *name, short kind) : ::omnetpp::cMessage(name,kind)
+ReqMsg::ReqMsg(const char *name, short kind) : ::omnetpp::cMessage(name,kind)
 {
-    this->setName("hello");
-    this->setKind(EventKind::HELLO);
+    this->setName("req");
 
-    this->uid = 0;
+    this->contactPointId = 0;
+    this->cid = 0;
+    this->level = 0;
 }
 
-HelloMsg::HelloMsg(const HelloMsg& other) : ::omnetpp::cMessage(other)
+ReqMsg::ReqMsg(const ReqMsg& other) : ::omnetpp::cMessage(other)
 {
     copy(other);
 }
 
-HelloMsg::~HelloMsg()
+ReqMsg::~ReqMsg()
 {
 }
 
-HelloMsg& HelloMsg::operator=(const HelloMsg& other)
+ReqMsg& ReqMsg::operator=(const ReqMsg& other)
 {
     if (this==&other) return *this;
     ::omnetpp::cMessage::operator=(other);
@@ -204,40 +205,66 @@ HelloMsg& HelloMsg::operator=(const HelloMsg& other)
     return *this;
 }
 
-void HelloMsg::copy(const HelloMsg& other)
+void ReqMsg::copy(const ReqMsg& other)
 {
-    this->uid = other.uid;
+    this->contactPointId = other.contactPointId;
+    this->cid = other.cid;
+    this->level = other.level;
 }
 
-void HelloMsg::parsimPack(omnetpp::cCommBuffer *b) const
+void ReqMsg::parsimPack(omnetpp::cCommBuffer *b) const
 {
     ::omnetpp::cMessage::parsimPack(b);
-    doParsimPacking(b,this->uid);
+    doParsimPacking(b,this->contactPointId);
+    doParsimPacking(b,this->cid);
+    doParsimPacking(b,this->level);
 }
 
-void HelloMsg::parsimUnpack(omnetpp::cCommBuffer *b)
+void ReqMsg::parsimUnpack(omnetpp::cCommBuffer *b)
 {
     ::omnetpp::cMessage::parsimUnpack(b);
-    doParsimUnpacking(b,this->uid);
+    doParsimUnpacking(b,this->contactPointId);
+    doParsimUnpacking(b,this->cid);
+    doParsimUnpacking(b,this->level);
 }
 
-int HelloMsg::getUid() const
+int ReqMsg::getContactPointId() const
 {
-    return this->uid;
+    return this->contactPointId;
 }
 
-void HelloMsg::setUid(int uid)
+void ReqMsg::setContactPointId(int contactPointId)
 {
-    this->uid = uid;
+    this->contactPointId = contactPointId;
 }
 
-class HelloMsgDescriptor : public omnetpp::cClassDescriptor
+int ReqMsg::getCid() const
+{
+    return this->cid;
+}
+
+void ReqMsg::setCid(int cid)
+{
+    this->cid = cid;
+}
+
+int ReqMsg::getLevel() const
+{
+    return this->level;
+}
+
+void ReqMsg::setLevel(int level)
+{
+    this->level = level;
+}
+
+class ReqMsgDescriptor : public omnetpp::cClassDescriptor
 {
   private:
     mutable const char **propertynames;
   public:
-    HelloMsgDescriptor();
-    virtual ~HelloMsgDescriptor();
+    ReqMsgDescriptor();
+    virtual ~ReqMsgDescriptor();
 
     virtual bool doesSupport(omnetpp::cObject *obj) const override;
     virtual const char **getPropertyNames() const override;
@@ -259,24 +286,24 @@ class HelloMsgDescriptor : public omnetpp::cClassDescriptor
     virtual void *getFieldStructValuePointer(void *object, int field, int i) const override;
 };
 
-Register_ClassDescriptor(HelloMsgDescriptor)
+Register_ClassDescriptor(ReqMsgDescriptor)
 
-HelloMsgDescriptor::HelloMsgDescriptor() : omnetpp::cClassDescriptor("HelloMsg", "omnetpp::cMessage")
+ReqMsgDescriptor::ReqMsgDescriptor() : omnetpp::cClassDescriptor("ReqMsg", "omnetpp::cMessage")
 {
     propertynames = nullptr;
 }
 
-HelloMsgDescriptor::~HelloMsgDescriptor()
+ReqMsgDescriptor::~ReqMsgDescriptor()
 {
     delete[] propertynames;
 }
 
-bool HelloMsgDescriptor::doesSupport(omnetpp::cObject *obj) const
+bool ReqMsgDescriptor::doesSupport(omnetpp::cObject *obj) const
 {
-    return dynamic_cast<HelloMsg *>(obj)!=nullptr;
+    return dynamic_cast<ReqMsg *>(obj)!=nullptr;
 }
 
-const char **HelloMsgDescriptor::getPropertyNames() const
+const char **ReqMsgDescriptor::getPropertyNames() const
 {
     if (!propertynames) {
         static const char *names[] = {  nullptr };
@@ -287,19 +314,19 @@ const char **HelloMsgDescriptor::getPropertyNames() const
     return propertynames;
 }
 
-const char *HelloMsgDescriptor::getProperty(const char *propertyname) const
+const char *ReqMsgDescriptor::getProperty(const char *propertyname) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     return basedesc ? basedesc->getProperty(propertyname) : nullptr;
 }
 
-int HelloMsgDescriptor::getFieldCount() const
+int ReqMsgDescriptor::getFieldCount() const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 1+basedesc->getFieldCount() : 1;
+    return basedesc ? 3+basedesc->getFieldCount() : 3;
 }
 
-unsigned int HelloMsgDescriptor::getFieldTypeFlags(int field) const
+unsigned int ReqMsgDescriptor::getFieldTypeFlags(int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -309,11 +336,13 @@ unsigned int HelloMsgDescriptor::getFieldTypeFlags(int field) const
     }
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<1) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<3) ? fieldTypeFlags[field] : 0;
 }
 
-const char *HelloMsgDescriptor::getFieldName(int field) const
+const char *ReqMsgDescriptor::getFieldName(int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -322,20 +351,24 @@ const char *HelloMsgDescriptor::getFieldName(int field) const
         field -= basedesc->getFieldCount();
     }
     static const char *fieldNames[] = {
-        "uid",
+        "contactPointId",
+        "cid",
+        "level",
     };
-    return (field>=0 && field<1) ? fieldNames[field] : nullptr;
+    return (field>=0 && field<3) ? fieldNames[field] : nullptr;
 }
 
-int HelloMsgDescriptor::findField(const char *fieldName) const
+int ReqMsgDescriptor::findField(const char *fieldName) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount() : 0;
-    if (fieldName[0]=='u' && strcmp(fieldName, "uid")==0) return base+0;
+    if (fieldName[0]=='c' && strcmp(fieldName, "contactPointId")==0) return base+0;
+    if (fieldName[0]=='c' && strcmp(fieldName, "cid")==0) return base+1;
+    if (fieldName[0]=='l' && strcmp(fieldName, "level")==0) return base+2;
     return basedesc ? basedesc->findField(fieldName) : -1;
 }
 
-const char *HelloMsgDescriptor::getFieldTypeString(int field) const
+const char *ReqMsgDescriptor::getFieldTypeString(int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -345,11 +378,13 @@ const char *HelloMsgDescriptor::getFieldTypeString(int field) const
     }
     static const char *fieldTypeStrings[] = {
         "int",
+        "int",
+        "int",
     };
-    return (field>=0 && field<1) ? fieldTypeStrings[field] : nullptr;
+    return (field>=0 && field<3) ? fieldTypeStrings[field] : nullptr;
 }
 
-const char **HelloMsgDescriptor::getFieldPropertyNames(int field) const
+const char **ReqMsgDescriptor::getFieldPropertyNames(int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -362,7 +397,7 @@ const char **HelloMsgDescriptor::getFieldPropertyNames(int field) const
     }
 }
 
-const char *HelloMsgDescriptor::getFieldProperty(int field, const char *propertyname) const
+const char *ReqMsgDescriptor::getFieldProperty(int field, const char *propertyname) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -375,7 +410,7 @@ const char *HelloMsgDescriptor::getFieldProperty(int field, const char *property
     }
 }
 
-int HelloMsgDescriptor::getFieldArraySize(void *object, int field) const
+int ReqMsgDescriptor::getFieldArraySize(void *object, int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -383,13 +418,13 @@ int HelloMsgDescriptor::getFieldArraySize(void *object, int field) const
             return basedesc->getFieldArraySize(object, field);
         field -= basedesc->getFieldCount();
     }
-    HelloMsg *pp = (HelloMsg *)object; (void)pp;
+    ReqMsg *pp = (ReqMsg *)object; (void)pp;
     switch (field) {
         default: return 0;
     }
 }
 
-const char *HelloMsgDescriptor::getFieldDynamicTypeString(void *object, int field, int i) const
+const char *ReqMsgDescriptor::getFieldDynamicTypeString(void *object, int field, int i) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -397,13 +432,13 @@ const char *HelloMsgDescriptor::getFieldDynamicTypeString(void *object, int fiel
             return basedesc->getFieldDynamicTypeString(object,field,i);
         field -= basedesc->getFieldCount();
     }
-    HelloMsg *pp = (HelloMsg *)object; (void)pp;
+    ReqMsg *pp = (ReqMsg *)object; (void)pp;
     switch (field) {
         default: return nullptr;
     }
 }
 
-std::string HelloMsgDescriptor::getFieldValueAsString(void *object, int field, int i) const
+std::string ReqMsgDescriptor::getFieldValueAsString(void *object, int field, int i) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -411,14 +446,16 @@ std::string HelloMsgDescriptor::getFieldValueAsString(void *object, int field, i
             return basedesc->getFieldValueAsString(object,field,i);
         field -= basedesc->getFieldCount();
     }
-    HelloMsg *pp = (HelloMsg *)object; (void)pp;
+    ReqMsg *pp = (ReqMsg *)object; (void)pp;
     switch (field) {
-        case 0: return long2string(pp->getUid());
+        case 0: return long2string(pp->getContactPointId());
+        case 1: return long2string(pp->getCid());
+        case 2: return long2string(pp->getLevel());
         default: return "";
     }
 }
 
-bool HelloMsgDescriptor::setFieldValueAsString(void *object, int field, int i, const char *value) const
+bool ReqMsgDescriptor::setFieldValueAsString(void *object, int field, int i, const char *value) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -426,14 +463,16 @@ bool HelloMsgDescriptor::setFieldValueAsString(void *object, int field, int i, c
             return basedesc->setFieldValueAsString(object,field,i,value);
         field -= basedesc->getFieldCount();
     }
-    HelloMsg *pp = (HelloMsg *)object; (void)pp;
+    ReqMsg *pp = (ReqMsg *)object; (void)pp;
     switch (field) {
-        case 0: pp->setUid(string2long(value)); return true;
+        case 0: pp->setContactPointId(string2long(value)); return true;
+        case 1: pp->setCid(string2long(value)); return true;
+        case 2: pp->setLevel(string2long(value)); return true;
         default: return false;
     }
 }
 
-const char *HelloMsgDescriptor::getFieldStructName(int field) const
+const char *ReqMsgDescriptor::getFieldStructName(int field) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -446,7 +485,7 @@ const char *HelloMsgDescriptor::getFieldStructName(int field) const
     };
 }
 
-void *HelloMsgDescriptor::getFieldStructValuePointer(void *object, int field, int i) const
+void *ReqMsgDescriptor::getFieldStructValuePointer(void *object, int field, int i) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -454,7 +493,7 @@ void *HelloMsgDescriptor::getFieldStructValuePointer(void *object, int field, in
             return basedesc->getFieldStructValuePointer(object, field, i);
         field -= basedesc->getFieldCount();
     }
-    HelloMsg *pp = (HelloMsg *)object; (void)pp;
+    ReqMsg *pp = (ReqMsg *)object; (void)pp;
     switch (field) {
         default: return nullptr;
     }

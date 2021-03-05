@@ -184,9 +184,8 @@ QueryMsg::QueryMsg(const char *name, short kind) : ::omnetpp::cMessage(name,kind
     this->setName("query");
     this->setKind(EventKind::QUERY);
 
-    this->contactPointId = 0;
-    this->cid = 0;
     this->level = 0;
+    this->cid = 0;
 }
 
 QueryMsg::QueryMsg(const QueryMsg& other) : ::omnetpp::cMessage(other)
@@ -208,45 +207,22 @@ QueryMsg& QueryMsg::operator=(const QueryMsg& other)
 
 void QueryMsg::copy(const QueryMsg& other)
 {
-    this->contactPointId = other.contactPointId;
-    this->cid = other.cid;
     this->level = other.level;
+    this->cid = other.cid;
 }
 
 void QueryMsg::parsimPack(omnetpp::cCommBuffer *b) const
 {
     ::omnetpp::cMessage::parsimPack(b);
-    doParsimPacking(b,this->contactPointId);
-    doParsimPacking(b,this->cid);
     doParsimPacking(b,this->level);
+    doParsimPacking(b,this->cid);
 }
 
 void QueryMsg::parsimUnpack(omnetpp::cCommBuffer *b)
 {
     ::omnetpp::cMessage::parsimUnpack(b);
-    doParsimUnpacking(b,this->contactPointId);
-    doParsimUnpacking(b,this->cid);
     doParsimUnpacking(b,this->level);
-}
-
-int QueryMsg::getContactPointId() const
-{
-    return this->contactPointId;
-}
-
-void QueryMsg::setContactPointId(int contactPointId)
-{
-    this->contactPointId = contactPointId;
-}
-
-int QueryMsg::getCid() const
-{
-    return this->cid;
-}
-
-void QueryMsg::setCid(int cid)
-{
-    this->cid = cid;
+    doParsimUnpacking(b,this->cid);
 }
 
 int QueryMsg::getLevel() const
@@ -257,6 +233,16 @@ int QueryMsg::getLevel() const
 void QueryMsg::setLevel(int level)
 {
     this->level = level;
+}
+
+int QueryMsg::getCid() const
+{
+    return this->cid;
+}
+
+void QueryMsg::setCid(int cid)
+{
+    this->cid = cid;
 }
 
 class QueryMsgDescriptor : public omnetpp::cClassDescriptor
@@ -324,7 +310,7 @@ const char *QueryMsgDescriptor::getProperty(const char *propertyname) const
 int QueryMsgDescriptor::getFieldCount() const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 3+basedesc->getFieldCount() : 3;
+    return basedesc ? 2+basedesc->getFieldCount() : 2;
 }
 
 unsigned int QueryMsgDescriptor::getFieldTypeFlags(int field) const
@@ -338,9 +324,8 @@ unsigned int QueryMsgDescriptor::getFieldTypeFlags(int field) const
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
         FD_ISEDITABLE,
-        FD_ISEDITABLE,
     };
-    return (field>=0 && field<3) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<2) ? fieldTypeFlags[field] : 0;
 }
 
 const char *QueryMsgDescriptor::getFieldName(int field) const
@@ -352,20 +337,18 @@ const char *QueryMsgDescriptor::getFieldName(int field) const
         field -= basedesc->getFieldCount();
     }
     static const char *fieldNames[] = {
-        "contactPointId",
-        "cid",
         "level",
+        "cid",
     };
-    return (field>=0 && field<3) ? fieldNames[field] : nullptr;
+    return (field>=0 && field<2) ? fieldNames[field] : nullptr;
 }
 
 int QueryMsgDescriptor::findField(const char *fieldName) const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount() : 0;
-    if (fieldName[0]=='c' && strcmp(fieldName, "contactPointId")==0) return base+0;
+    if (fieldName[0]=='l' && strcmp(fieldName, "level")==0) return base+0;
     if (fieldName[0]=='c' && strcmp(fieldName, "cid")==0) return base+1;
-    if (fieldName[0]=='l' && strcmp(fieldName, "level")==0) return base+2;
     return basedesc ? basedesc->findField(fieldName) : -1;
 }
 
@@ -380,9 +363,8 @@ const char *QueryMsgDescriptor::getFieldTypeString(int field) const
     static const char *fieldTypeStrings[] = {
         "int",
         "int",
-        "int",
     };
-    return (field>=0 && field<3) ? fieldTypeStrings[field] : nullptr;
+    return (field>=0 && field<2) ? fieldTypeStrings[field] : nullptr;
 }
 
 const char **QueryMsgDescriptor::getFieldPropertyNames(int field) const
@@ -449,9 +431,8 @@ std::string QueryMsgDescriptor::getFieldValueAsString(void *object, int field, i
     }
     QueryMsg *pp = (QueryMsg *)object; (void)pp;
     switch (field) {
-        case 0: return long2string(pp->getContactPointId());
+        case 0: return long2string(pp->getLevel());
         case 1: return long2string(pp->getCid());
-        case 2: return long2string(pp->getLevel());
         default: return "";
     }
 }
@@ -466,9 +447,8 @@ bool QueryMsgDescriptor::setFieldValueAsString(void *object, int field, int i, c
     }
     QueryMsg *pp = (QueryMsg *)object; (void)pp;
     switch (field) {
-        case 0: pp->setContactPointId(string2long(value)); return true;
+        case 0: pp->setLevel(string2long(value)); return true;
         case 1: pp->setCid(string2long(value)); return true;
-        case 2: pp->setLevel(string2long(value)); return true;
         default: return false;
     }
 }

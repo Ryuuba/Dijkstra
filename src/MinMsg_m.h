@@ -29,7 +29,7 @@
  * {
  *     name = "min";
  *     kind = EventKind::MIN;
- *     int id; //The ID of the message composer
+ *     int uid; //The ID of the message composer
  *     double weight;  // The weight of the link
  *     int minUid;     // The min UID of a link
  *     int maxUid;     // The max UID of a link
@@ -39,7 +39,7 @@
 class MinMsg : public ::omnetpp::cMessage
 {
   protected:
-    int id;
+    int uid;
     double weight;
     int minUid;
     int maxUid;
@@ -61,8 +61,8 @@ class MinMsg : public ::omnetpp::cMessage
     virtual void parsimUnpack(omnetpp::cCommBuffer *b) override;
 
     // field getter/setter methods
-    virtual int getId() const;
-    virtual void setId(int id);
+    virtual int getUid() const;
+    virtual void setUid(int uid);
     virtual double getWeight() const;
     virtual void setWeight(double weight);
     virtual int getMinUid() const;

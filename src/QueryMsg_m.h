@@ -29,18 +29,16 @@
  * {
  *     name = "query";
  *     kind = EventKind::QUERY;
- *     int contactPointId;  // The ID of the contact point
- *     int cid;          // The cluster ID
- *     int level;        // The cluster level
+ *     int level;
+ *     int cid;
  * }
  * </pre>
  */
 class QueryMsg : public ::omnetpp::cMessage
 {
   protected:
-    int contactPointId;
-    int cid;
     int level;
+    int cid;
 
   private:
     void copy(const QueryMsg& other);
@@ -59,12 +57,10 @@ class QueryMsg : public ::omnetpp::cMessage
     virtual void parsimUnpack(omnetpp::cCommBuffer *b) override;
 
     // field getter/setter methods
-    virtual int getContactPointId() const;
-    virtual void setContactPointId(int contactPointId);
-    virtual int getCid() const;
-    virtual void setCid(int cid);
     virtual int getLevel() const;
     virtual void setLevel(int level);
+    virtual int getCid() const;
+    virtual void setCid(int cid);
 };
 
 inline void doParsimPacking(omnetpp::cCommBuffer *b, const QueryMsg& obj) {obj.parsimPack(b);}

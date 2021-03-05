@@ -17,48 +17,39 @@
 #define EVENT_H
 
 #include <omnetpp.h>
+//TODO Hide Impulse and timeout messages
 /** @brief Represents an spontaneous impulse */
-typedef omnetpp::cMessage* ImpulsePtr;
+typedef omnetpp::cMessage Impulse;
 /** @brief Represents the expiration of a timer */
-typedef omnetpp::cMessage* TimeoutPtr;
+typedef omnetpp::cMessage Timeout;
 /** @brief Represents the reception of a message */
-typedef omnetpp::cMessage* MsgPtr;
+typedef omnetpp::cMessage Msg;
 
 enum EventKind {
   /** @brief An spontaneous impulse */
   IMPULSE = 0,
   /** @brief The expiration of a timer */
-  TIMER,
-  /** @brief A message carrying a data, e.g., a local min value */
-  DATA,
-  /** @brief The reception of a query */
-  QUERY,
-  /** @brief The reception of a reply */
+  TIMEOUT,
+  /** @brief The reception of request for forwarding a REQ msg to the 
+   * minimum-weight outgoing link */
+  FWD,
+  /** @brief The reception of a request for merger clusters */
+  REQ,
+  /** @brief The reception of an answer of a request */
   REPLY,
-  /** @brief The reception of an affirmative response */
+  /** @brief The reception of a query to ask for the state variables of a node */
+  QUERY,
+  /** @brief The reception of a positive answer of a query */
   YES,
   /** @brief The reception of an negative response */
   NO,
-  /** @brief The reception of an acknowlegdement */
-  ACK,
-  /** @brief The reception of a negative acknowlegdement */
-  NACK,
-  /** @brief The reception of a token */
-  TOKEN,
   /** @brief The reception of an announcement to inform a task is completed */
   CHECK,
   /** @brief The reception of an message to inform global termination */
   TERMINATION,
-  /** @brief A request to activation */
-  ACTIVATE,
-  /** @brief A message indicating the reception of |N(x)| - 1 messages*/
-  SATURATION,
-  /** @brief A message use to solve the Election problem */
-  ELECTION,
-  // Append other categories from here
-  /** @brief A hello message */
+  /** @brief The reception of hello message */
   HELLO,
-  /** @brief A message containg a local minimum  */
+  /** @brief The reception of a message containg a local minimum */
   MIN
 };
 

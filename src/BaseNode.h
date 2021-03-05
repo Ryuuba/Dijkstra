@@ -29,10 +29,10 @@
 class BaseNode : public omnetpp::cSimpleModule {
 private:
   /** @brief An event causing this node wakes up */
-  ImpulsePtr wakeUp;
+  Impulse* wakeUp;
   /** @brief A timer that rings after sometime. It is set by the setTimer()
    *  method */
-  TimeoutPtr timeout; 
+  Timeout* timeout; 
   /** @brief This object is used tu add protocol rules */
   Enabler pair;
   /** @brief The set of rules B(x) this node obeys. The structure of a rule is:
@@ -122,6 +122,18 @@ public:
    *  @param second - The name of a HTML standard color
   */
   virtual void changeEdgeColor(int, const char*) const;
+  /** @brief Changes the style of an edge by a dotted line 
+   *  @param port - The number of port to be modified
+  */
+  virtual void setEdgeDotted(int) const;
+  /** @brief Changes the style of an edge by a dashed line 
+   *  @param port - The number of port to be modified
+  */
+  virtual void setEdgeDashed(int) const;
+  /** @brief Changes the style of an edge by a solid line 
+   *  @param port - The number of port to be modified
+  */
+  virtual void setEdgeSolid(int) const;
   /** @brief Spontaneously, gets up this node. Wake-up time is set in 
    *  omnetpp.ini (parameter startTime). By default, nodes spontaneously wake
    *  up at t = 0 s.
