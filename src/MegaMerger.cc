@@ -37,7 +37,7 @@ void MegaMerger::initialize() {
   addRule(Status::IDLE, EventKind::IMPULSE, New_Action(WakingUp));
   addRule(Status::IDLE, EventKind::HELLO, New_Action(BroadcastingHello));
   addRule(Status::CONNECTING, EventKind::REQ, New_Action(ClusterMerger));
-  // addRule(Status::CONNECTING, EventKind::FWD, New_Action(ForwardingRequest));
+  addRule(Status::CONNECTING, EventKind::FWD, New_Action(ForwardingRequest));
   addRule(Status::CONNECTING, EventKind::QUERY, New_Action(ReplyingQuery));
   addRule(Status::CONNECTING, EventKind::CHECK, New_Action(Expanding));
   addRule(Status::CONNECTING, EventKind::TERMINATION, New_Action(Solving));
@@ -52,6 +52,7 @@ void MegaMerger::initialize() {
   addRule(Status::PROCESSING, EventKind::REQ, New_Action(TryingAbsorption));
   status = Status::IDLE;
   WATCH(unknownLinkCnt);
+  WATCH(outgoingPortIndex);
 }
 
 void MegaMerger::refreshDisplay() const {
@@ -100,7 +101,6 @@ void MegaMerger::forwardRequest(ReqMsg* req) {
     req->setKind(EventKind::FWD);
   }
   if (req->getContactPointId() == uid) {
-    expectedContactPointUid = std::get<Index::NID>(neighborCache[outgoingPortIndex]);
     req->setKind(EventKind::REQ);
   }
   send(req, out, outgoingPortIndex);
@@ -224,6 +224,8 @@ void MegaMerger::convergecast() {
   }
   else {
     isConvergecastFinished = true;
+    if (contactPointId == uid)
+      expectedContactPointUid = std::get<Index::NID>(neighborCache[outgoingPortIndex]);
     forwardRequest();
     status = Status::CONNECTING;
   }
@@ -352,13 +354,31 @@ void MegaMerger::initializeNodeState() {
 
 void MegaMerger::tryAbsorption(ReqMsg* req) {
   int arrivalGate = req->getArrivalGate()->getIndex();
+  bool isBranch = (level == 0) ? false : req->getContactPointId() == 
+    std::get<Index::NID>(neighborCache[outgoingPortIndex]);
   // Case absortion
   if (level > req->getLevel()) {
-    std::get<Index::KIND>(neighborCache[arrivalGate]) = LinkKind::BRANCH;
-    unknownLinkCnt--;
-    tree.push_back(arrivalGate);
-    children.push_back(arrivalGate);
-    sendCheck(arrivalGate, isConvergecastFinished ? false : true);
+    if (isBranch) {
+      std::get<Index::KIND>(neighborCache[arrivalGate]) = LinkKind::BRANCH;
+      unknownLinkCnt--;
+      tree.push_back(arrivalGate);
+      children.push_back(arrivalGate);
+      if (unknownLinkCnt > 0) {
+        computeOutgoingLink();
+        sendQuery();
+      }
+      else {
+        setInfinityWeight();
+        startConvergecast();
+      }
+    }
+    else {
+      std::get<Index::KIND>(neighborCache[arrivalGate]) = LinkKind::BRANCH;
+      unknownLinkCnt--;
+      tree.push_back(arrivalGate);
+      children.push_back(arrivalGate);
+      sendCheck(arrivalGate, isConvergecastFinished ? false : true);
+    }
     delete req;
   }
   // Case merger or future absorption
@@ -389,6 +409,8 @@ void MegaMerger::BroadcastingHello::operator()(Msg* msg) {
   else {
     ap->computeOutgoingLink();
     ap->contactPointId = ap->uid;
+    ap->expectedContactPointUid = 
+      std::get<Index::NID>(ap->neighborCache[ap->outgoingPortIndex]);
     ap->forwardRequest();
     ap->status = Status::CONNECTING;
   }
@@ -406,6 +428,8 @@ void MegaMerger::UpdatingCache::operator()(Msg* msg) {
   if (ap->neighborhoodSize == ap->helloCounter) {
     ap->computeOutgoingLink();
     ap->contactPointId = ap->uid;
+    ap->expectedContactPointUid = 
+      std::get<Index::NID>(ap->neighborCache[ap->outgoingPortIndex]);
     ap->forwardRequest();
     ap->status = Status::CONNECTING;
   }
@@ -504,6 +528,33 @@ void MegaMerger::ReplyingQuery::operator()(Msg* msg) {
     ap->sendYes(arrivalGate);
     delete query;
   }
+  else if ( // Overlap previous req with Q
+    ap->expectedContactPointUid == 
+    std::get<Index::NID>(ap->neighborCache[arrivalGate])
+  ) {
+    ap->cid = query->getCid();
+    ap->level = query->getLevel();
+    ap->core = false;
+    ap->parent = arrivalGate;
+    ap->broadcastCheck(true);
+    ap->tree.push_back(arrivalGate);
+    std::get<Index::KIND>(ap->neighborCache[arrivalGate]) =
+      LinkKind::BRANCH;
+    ap->unknownLinkCnt--;
+    ap->replyPendingQueryMsg();
+    if (ap->unknownLinkCnt > 0) {
+      ap->computeOutgoingLink();
+      ap->startUpdating();
+      ap->isConvergecastFinished = false;
+      ap->status = Status::UPDATING;
+    }
+    else {
+      ap->setInfinityWeight();
+      ap->startConvergecast();
+      ap->isConvergecastFinished = false;
+    }
+    delete query;
+  }
   else
     ap->queryCache.push_back(query);
 }
@@ -560,4 +611,42 @@ void MegaMerger::ComputingMinimum::operator()(Msg* msg) {
 void MegaMerger::Solving::operator()(Msg* msg) {
   ap->downstremBroadcastTermination(msg);
   ap->status = Status::FOLLOWER;
+}
+
+void MegaMerger::ForwardingRequest::operator()(Msg* msg) {
+  auto req = dynamic_cast<ReqMsg*>(msg);
+  if (req->getContactPointId() == ap->uid) {
+    ap->expectedContactPointUid = 
+      std::get<Index::NID>(ap->neighborCache[ap->outgoingPortIndex]);
+    auto it = find_if (
+      ap->reqCache.begin(),
+      ap->reqCache.end(),
+      [&](ReqMsg* reqMsg) -> bool {
+        return ap->expectedContactPointUid == reqMsg->getContactPointId();
+      }
+    );
+    if (it != ap->reqCache.end()) {
+      delete *it;
+      ap->reqCache.erase(it);
+      ap->updateClusterState(req);
+      ap->attendPendingRequest();
+      ap->replyPendingQueryMsg();
+      if (ap->unknownLinkCnt > 0) {
+        ap->computeOutgoingLink();
+        ap->startUpdating();
+        ap->isConvergecastFinished = false;
+        ap->status = Status::UPDATING;
+      }
+      else {
+        ap->setInfinityWeight();
+        ap->startConvergecast();
+        ap->isConvergecastFinished = false;
+      }
+    }
+    else {
+      ap->forwardRequest(req);
+    }
+  }
+  else
+    ap->forwardRequest(req);
 }
