@@ -13,31 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-// Created: 2021-1-14 for project ds.base
-
 package dsbase.simulations;
-
 import dsbase.INode;
 
 import dsbase.Edge;
 
-//
-// A generated network with grid topology.
-//
-network Grid
-{
+network Chain {
     parameters:
-        int columns = default(4);
-        int rows = default(4);
+        @display("bgb=300,300");
         string kind;
+        int w = default(1);
+        int size = default(10);
     submodules:
-        node[columns*rows]: <kind> like INode {
-            @display("p=,,matrix,$columns");
-            
-        }
-    connections allowunconnected:
-        for i=0..rows-1, for j=0..columns-1 {
-            node[i*columns+j].port++ <--> Edge{weight = 1;} <--> node[(i+1)*columns+j].port++ if i!=rows-1;
-            node[i*columns+j].port++ <--> Edge{weight = 1;} <--> node[i*columns+j+1].port++ if j!=columns-1;
+        node[size] : <kind> like INode; // Indicate the kind of node
+    connections:
+        for i=0..size-2 {
+            node[i].port++ <--> Edge{weight = 1;} <--> node[(i+1)].port++;
         }
 }

@@ -1,0 +1,364 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid Tree-0-20210308-23:13:06-3689 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t dsbase.simulations.Tree n Tree cm 1
+MS id 1 d ""
+MC id 2 c MegaMerger t dsbase.MegaMerger pid 1 n node[0]
+MS id 2 d i=device/laptop
+MC id 3 c MegaMerger t dsbase.MegaMerger pid 1 n node[1]
+MS id 3 d i=device/laptop
+MC id 4 c MegaMerger t dsbase.MegaMerger pid 1 n node[2]
+MS id 4 d i=device/laptop
+MC id 5 c MegaMerger t dsbase.MegaMerger pid 1 n node[3]
+MS id 5 d i=device/laptop
+MC id 6 c MegaMerger t dsbase.MegaMerger pid 1 n node[4]
+MS id 6 d i=device/laptop
+MC id 7 c MegaMerger t dsbase.MegaMerger pid 1 n node[5]
+MS id 7 d i=device/laptop
+MC id 8 c MegaMerger t dsbase.MegaMerger pid 1 n node[6]
+MS id 8 d i=device/laptop
+MC id 9 c MegaMerger t dsbase.MegaMerger pid 1 n node[7]
+MS id 9 d i=device/laptop
+MC id 10 c MegaMerger t dsbase.MegaMerger pid 1 n node[8]
+MS id 10 d i=device/laptop
+MC id 11 c MegaMerger t dsbase.MegaMerger pid 1 n node[9]
+MS id 11 d i=device/laptop
+MC id 12 c MegaMerger t dsbase.MegaMerger pid 1 n node[10]
+MS id 12 d i=device/laptop
+MC id 13 c MegaMerger t dsbase.MegaMerger pid 1 n node[11]
+MS id 13 d i=device/laptop
+MC id 14 c MegaMerger t dsbase.MegaMerger pid 1 n node[12]
+MS id 14 d i=device/laptop
+MC id 15 c MegaMerger t dsbase.MegaMerger pid 1 n node[13]
+MS id 15 d i=device/laptop
+GC m 2 g 1048576 n port$i i 0 o 0
+GC m 2 g 1572864 n port$o i 0 o 1
+GC m 10 g 1048576 n port$i i 0 o 0
+GC m 10 g 1572864 n port$o i 0 o 1
+CC sm 2 sg 1572864 dm 10 dg 1048576
+CS sm 2 sg 1572864 d ""
+CC sm 10 sg 1572864 dm 2 dg 1048576
+CS sm 10 sg 1572864 d ""
+GC m 3 g 1048576 n port$i i 0 o 0
+GC m 3 g 1572864 n port$o i 0 o 1
+GC m 10 g 1048577 n port$i i 1 o 0
+GC m 10 g 1572865 n port$o i 1 o 1
+CC sm 3 sg 1572864 dm 10 dg 1048577
+CS sm 3 sg 1572864 d ""
+CC sm 10 sg 1572865 dm 3 dg 1048576
+CS sm 10 sg 1572865 d ""
+GC m 4 g 1048576 n port$i i 0 o 0
+GC m 4 g 1572864 n port$o i 0 o 1
+GC m 11 g 1048576 n port$i i 0 o 0
+GC m 11 g 1572864 n port$o i 0 o 1
+CC sm 4 sg 1572864 dm 11 dg 1048576
+CS sm 4 sg 1572864 d ""
+CC sm 11 sg 1572864 dm 4 dg 1048576
+CS sm 11 sg 1572864 d ""
+GC m 5 g 1048576 n port$i i 0 o 0
+GC m 5 g 1572864 n port$o i 0 o 1
+GC m 11 g 1048577 n port$i i 1 o 0
+GC m 11 g 1572865 n port$o i 1 o 1
+CC sm 5 sg 1572864 dm 11 dg 1048577
+CS sm 5 sg 1572864 d ""
+CC sm 11 sg 1572865 dm 5 dg 1048576
+CS sm 11 sg 1572865 d ""
+GC m 6 g 1048576 n port$i i 0 o 0
+GC m 6 g 1572864 n port$o i 0 o 1
+GC m 12 g 1048576 n port$i i 0 o 0
+GC m 12 g 1572864 n port$o i 0 o 1
+CC sm 6 sg 1572864 dm 12 dg 1048576
+CS sm 6 sg 1572864 d ""
+CC sm 12 sg 1572864 dm 6 dg 1048576
+CS sm 12 sg 1572864 d ""
+GC m 7 g 1048576 n port$i i 0 o 0
+GC m 7 g 1572864 n port$o i 0 o 1
+GC m 12 g 1048577 n port$i i 1 o 0
+GC m 12 g 1572865 n port$o i 1 o 1
+CC sm 7 sg 1572864 dm 12 dg 1048577
+CS sm 7 sg 1572864 d ""
+CC sm 12 sg 1572865 dm 7 dg 1048576
+CS sm 12 sg 1572865 d ""
+GC m 8 g 1048576 n port$i i 0 o 0
+GC m 8 g 1572864 n port$o i 0 o 1
+GC m 13 g 1048576 n port$i i 0 o 0
+GC m 13 g 1572864 n port$o i 0 o 1
+CC sm 8 sg 1572864 dm 13 dg 1048576
+CS sm 8 sg 1572864 d ""
+CC sm 13 sg 1572864 dm 8 dg 1048576
+CS sm 13 sg 1572864 d ""
+GC m 9 g 1048576 n port$i i 0 o 0
+GC m 9 g 1572864 n port$o i 0 o 1
+GC m 13 g 1048577 n port$i i 1 o 0
+GC m 13 g 1572865 n port$o i 1 o 1
+CC sm 9 sg 1572864 dm 13 dg 1048577
+CS sm 9 sg 1572864 d ""
+CC sm 13 sg 1572865 dm 9 dg 1048576
+CS sm 13 sg 1572865 d ""
+GC m 10 g 1048578 n port$i i 2 o 0
+GC m 10 g 1572866 n port$o i 2 o 1
+GC m 14 g 1048576 n port$i i 0 o 0
+GC m 14 g 1572864 n port$o i 0 o 1
+CC sm 10 sg 1572866 dm 14 dg 1048576
+CS sm 10 sg 1572866 d ""
+CC sm 14 sg 1572864 dm 10 dg 1048578
+CS sm 14 sg 1572864 d ""
+GC m 11 g 1048578 n port$i i 2 o 0
+GC m 11 g 1572866 n port$o i 2 o 1
+GC m 14 g 1048577 n port$i i 1 o 0
+GC m 14 g 1572865 n port$o i 1 o 1
+CC sm 11 sg 1572866 dm 14 dg 1048577
+CS sm 11 sg 1572866 d ""
+CC sm 14 sg 1572865 dm 11 dg 1048578
+CS sm 14 sg 1572865 d ""
+GC m 12 g 1048578 n port$i i 2 o 0
+GC m 12 g 1572866 n port$o i 2 o 1
+GC m 15 g 1048576 n port$i i 0 o 0
+GC m 15 g 1572864 n port$o i 0 o 1
+CC sm 12 sg 1572866 dm 15 dg 1048576
+CS sm 12 sg 1572866 d ""
+CC sm 15 sg 1572864 dm 12 dg 1048578
+CS sm 15 sg 1572864 d ""
+GC m 13 g 1048578 n port$i i 2 o 0
+GC m 13 g 1572866 n port$o i 2 o 1
+GC m 15 g 1048577 n port$i i 1 o 0
+GC m 15 g 1572865 n port$o i 1 o 1
+CC sm 13 sg 1572866 dm 15 dg 1048577
+CS sm 13 sg 1572866 d ""
+CC sm 15 sg 1572865 dm 13 dg 1048578
+CS sm 15 sg 1572865 d ""
+GC m 14 g 1048578 n port$i i 2 o 0
+GC m 14 g 1572866 n port$o i 2 o 1
+GC m 15 g 1048578 n port$i i 2 o 0
+GC m 15 g 1572866 n port$o i 2 o 1
+CC sm 14 sg 1572866 dm 15 dg 1048578
+CS sm 14 sg 1572866 d ""
+CC sm 15 sg 1572866 dm 14 dg 1048578
+CS sm 15 sg 1572866 d ""
+CS sm 2 sg 1572864 d t=10.0
+CS sm 2 sg 1572864 d t=10.0,l
+CS sm 2 sg 1572864 d t=10.0,l,black
+CS sm 3 sg 1572864 d t=10.0
+CS sm 3 sg 1572864 d t=10.0,l
+CS sm 3 sg 1572864 d t=10.0,l,black
+CS sm 4 sg 1572864 d t=10.0
+CS sm 4 sg 1572864 d t=10.0,l
+CS sm 4 sg 1572864 d t=10.0,l,black
+CS sm 5 sg 1572864 d t=10.0
+CS sm 5 sg 1572864 d t=10.0,l
+CS sm 5 sg 1572864 d t=10.0,l,black
+CS sm 6 sg 1572864 d t=10.0
+CS sm 6 sg 1572864 d t=10.0,l
+CS sm 6 sg 1572864 d t=10.0,l,black
+CS sm 7 sg 1572864 d t=10.0
+CS sm 7 sg 1572864 d t=10.0,l
+CS sm 7 sg 1572864 d t=10.0,l,black
+CS sm 8 sg 1572864 d t=10.0
+CS sm 8 sg 1572864 d t=10.0,l
+CS sm 8 sg 1572864 d t=10.0,l,black
+CS sm 9 sg 1572864 d t=10.0
+CS sm 9 sg 1572864 d t=10.0,l
+CS sm 9 sg 1572864 d t=10.0,l,black
+CS sm 10 sg 1572864 d t=10.0
+CS sm 10 sg 1572864 d t=10.0,l
+CS sm 10 sg 1572864 d t=10.0,l,black
+CS sm 10 sg 1572865 d t=10.0
+CS sm 10 sg 1572865 d t=10.0,l
+CS sm 10 sg 1572865 d t=10.0,l,black
+CS sm 10 sg 1572866 d t=10.0
+CS sm 10 sg 1572866 d t=10.0,l
+CS sm 10 sg 1572866 d t=10.0,l,black
+CS sm 11 sg 1572864 d t=10.0
+CS sm 11 sg 1572864 d t=10.0,l
+CS sm 11 sg 1572864 d t=10.0,l,black
+CS sm 11 sg 1572865 d t=10.0
+CS sm 11 sg 1572865 d t=10.0,l
+CS sm 11 sg 1572865 d t=10.0,l,black
+CS sm 11 sg 1572866 d t=10.0
+CS sm 11 sg 1572866 d t=10.0,l
+CS sm 11 sg 1572866 d t=10.0,l,black
+CS sm 12 sg 1572864 d t=10.0
+CS sm 12 sg 1572864 d t=10.0,l
+CS sm 12 sg 1572864 d t=10.0,l,black
+CS sm 12 sg 1572865 d t=10.0
+CS sm 12 sg 1572865 d t=10.0,l
+CS sm 12 sg 1572865 d t=10.0,l,black
+CS sm 12 sg 1572866 d t=10.0
+CS sm 12 sg 1572866 d t=10.0,l
+CS sm 12 sg 1572866 d t=10.0,l,black
+CS sm 13 sg 1572864 d t=10.0
+CS sm 13 sg 1572864 d t=10.0,l
+CS sm 13 sg 1572864 d t=10.0,l,black
+CS sm 13 sg 1572865 d t=10.0
+CS sm 13 sg 1572865 d t=10.0,l
+CS sm 13 sg 1572865 d t=10.0,l,black
+CS sm 13 sg 1572866 d t=10.0
+CS sm 13 sg 1572866 d t=10.0,l
+CS sm 13 sg 1572866 d t=10.0,l,black
+CS sm 14 sg 1572864 d t=10.0
+CS sm 14 sg 1572864 d t=10.0,l
+CS sm 14 sg 1572864 d t=10.0,l,black
+CS sm 14 sg 1572865 d t=10.0
+CS sm 14 sg 1572865 d t=10.0,l
+CS sm 14 sg 1572865 d t=10.0,l,black
+CS sm 14 sg 1572866 d t=1.0
+CS sm 14 sg 1572866 d t=1.0,l
+CS sm 14 sg 1572866 d t=1.0,l,black
+CS sm 15 sg 1572864 d t=10.0
+CS sm 15 sg 1572864 d t=10.0,l
+CS sm 15 sg 1572864 d t=10.0,l,black
+CS sm 15 sg 1572865 d t=10.0
+CS sm 15 sg 1572865 d t=10.0,l
+CS sm 15 sg 1572865 d t=10.0,l,black
+CS sm 15 sg 1572866 d t=1.0
+CS sm 15 sg 1572866 d t=1.0,l
+CS sm 15 sg 1572866 d t=1.0,l,black
+MB sm 1 tm 2 m initialize(0)
+CM id 134 tid 134 eid 134 etid 134 c omnetpp::cMessage n spontaneuosly pe -1
+BS id 134 tid 134 eid 134 etid 134 c omnetpp::cMessage n spontaneuosly pe 0
+ES t 0
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+MB sm 1 tm 4 m initialize(0)
+ME
+MB sm 1 tm 5 m initialize(0)
+ME
+MB sm 1 tm 6 m initialize(0)
+ME
+MB sm 1 tm 7 m initialize(0)
+ME
+MB sm 1 tm 8 m initialize(0)
+ME
+MB sm 1 tm 9 m initialize(0)
+ME
+MB sm 1 tm 10 m initialize(0)
+ME
+MB sm 1 tm 11 m initialize(0)
+ME
+MB sm 1 tm 12 m initialize(0)
+ME
+MB sm 1 tm 13 m initialize(0)
+ME
+MB sm 1 tm 14 m initialize(0)
+ME
+MB sm 1 tm 15 m initialize(0)
+ME
+MS id 2 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 2 sg 1572864 d ls=black;t=10.0,l,black
+MS id 3 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 3 sg 1572864 d ls=black;t=10.0,l,black
+MS id 4 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 4 sg 1572864 d ls=black;t=10.0,l,black
+MS id 5 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 5 sg 1572864 d ls=black;t=10.0,l,black
+MS id 6 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 6 sg 1572864 d ls=black;t=10.0,l,black
+MS id 7 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 7 sg 1572864 d ls=black;t=10.0,l,black
+MS id 8 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 8 sg 1572864 d ls=black;t=10.0,l,black
+MS id 9 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 9 sg 1572864 d ls=black;t=10.0,l,black
+MS id 10 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 10 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 10 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 10 sg 1572866 d ls=black;t=10.0,l,black
+MS id 11 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 11 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 11 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 11 sg 1572866 d ls=black;t=10.0,l,black
+MS id 12 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 12 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 12 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 12 sg 1572866 d ls=black;t=10.0,l,black
+MS id 13 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 13 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 13 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 13 sg 1572866 d ls=black;t=10.0,l,black
+MS id 14 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 14 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 14 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 14 sg 1572866 d ls=black;t=1.0,l,black
+MS id 15 d "t=IDLE\n-1 -1\n;i=device/laptop"
+CS sm 15 sg 1572864 d ls=black;t=10.0,l,black
+CS sm 15 sg 1572865 d ls=black;t=10.0,l,black
+CS sm 15 sg 1572866 d ls=black;t=1.0,l,black
+
+E # 1 t 0 m 2 ce 0 msg 134
+- INFO:Node[0] meets rule (IDLE, spontaneuosly) -> WakingUp
+CM id 135 tid 135 eid 135 etid 135 c omnetpp::cMessage n "" pe -1
+BS id 135 tid 135 eid 135 etid 135 c HelloMsg n hello k 10 pe 1
+SH sm 2 sg 1572864 pd 1
+ES t 1
+CL id 135 tid 135 eid 135 etid 135 c HelloMsg n hello k 10 pe 1 cid 136
+MS id 2 d "t=UPDATING\n0 0\n;i=device/laptop"
+
+E # 2 t 1 m 10 ce 1 msg 135
+- INFO:Node[8] meets rule (IDLE, hello) -> BroadcastingHello
+CM id 136 tid 136 eid 136 etid 136 c omnetpp::cMessage n "" pe -1
+CL id 136 tid 136 eid 136 etid 136 c HelloMsg n hello k 10 pe 2 cid 137
+BS id 137 tid 136 eid 137 etid 136 c HelloMsg n hello k 10 pe 2
+SH sm 10 sg 1572865 pd 1
+ES t 2
+CL id 137 tid 136 eid 137 etid 136 c HelloMsg n hello k 10 pe 2 cid 138
+CL id 136 tid 136 eid 136 etid 136 c HelloMsg n hello k 10 pe 2 cid 138
+BS id 138 tid 136 eid 138 etid 136 c HelloMsg n hello k 10 pe 2
+SH sm 10 sg 1572866 pd 1
+ES t 2
+CL id 138 tid 136 eid 138 etid 136 c HelloMsg n hello k 10 pe 2 cid 139
+BS id 136 tid 136 eid 136 etid 136 c HelloMsg n hello k 10 pe 2
+SH sm 10 sg 1572864 pd 1
+ES t 2
+CL id 136 tid 136 eid 136 etid 136 c HelloMsg n hello k 10 pe 2 cid 139
+DM id 135 tid 135 eid 135 etid 135 c omnetpp::cMessage n hello k 10 pe 2
+MS id 10 d "t=UPDATING\n8 0\n;i=device/laptop"
+
+E # 3 t 2 m 3 ce 2 msg 137
+- INFO:Node[1] meets rule (IDLE, hello) -> BroadcastingHello
+CM id 139 tid 139 eid 139 etid 139 c omnetpp::cMessage n "" pe -1
+BS id 139 tid 139 eid 139 etid 139 c HelloMsg n hello k 10 pe 3
+SH sm 3 sg 1572864 pd 1
+ES t 3
+CL id 139 tid 139 eid 139 etid 139 c HelloMsg n hello k 10 pe 3 cid 140
+CM id 140 tid 140 eid 140 etid 140 c omnetpp::cMessage n "" pe -1
+BS id 140 tid 140 eid 140 etid 140 c ReqMsg n req k 3 pe 3
+SH sm 3 sg 1572864 pd 1
+ES t 3
+CL id 140 tid 140 eid 140 etid 140 c ReqMsg n req k 3 pe 3 cid 141
+DM id 137 tid 136 eid 137 etid 136 c omnetpp::cMessage n hello k 10 pe 3
+
+E # 4 t 2 m 14 ce 2 msg 138
+MS id 3 d "t=CONNECTING\n1 0\n;i=device/laptop"
+- INFO:Node[12] meets rule (IDLE, hello) -> BroadcastingHello
+CM id 141 tid 141 eid 141 etid 141 c omnetpp::cMessage n "" pe -1
+CL id 141 tid 141 eid 141 etid 141 c HelloMsg n hello k 10 pe 4 cid 142
+BS id 142 tid 141 eid 142 etid 141 c HelloMsg n hello k 10 pe 4
+SH sm 14 sg 1572865 pd 1
+ES t 3
+CL id 142 tid 141 eid 142 etid 141 c HelloMsg n hello k 10 pe 4 cid 143
+CL id 141 tid 141 eid 141 etid 141 c HelloMsg n hello k 10 pe 4 cid 143
+BS id 143 tid 141 eid 143 etid 141 c HelloMsg n hello k 10 pe 4
+SH sm 14 sg 1572866 pd 1
+ES t 3
+CL id 143 tid 141 eid 143 etid 141 c HelloMsg n hello k 10 pe 4 cid 144
+BS id 141 tid 141 eid 141 etid 141 c HelloMsg n hello k 10 pe 4
+SH sm 14 sg 1572864 pd 1
+ES t 3
+CL id 141 tid 141 eid 141 etid 141 c HelloMsg n hello k 10 pe 4 cid 144
+DM id 138 tid 136 eid 138 etid 136 c omnetpp::cMessage n hello k 10 pe 4
+
+E # 5 t 2 m 2 ce 2 msg 136
+MS id 14 d "t=UPDATING\n12 0\n;i=device/laptop"
+- INFO:Node[0] meets rule (UPDATING, hello) -> UpdatingCache
+CM id 144 tid 144 eid 144 etid 144 c omnetpp::cMessage n "" pe -1
+BS id 144 tid 144 eid 144 etid 144 c ReqMsg n req k 3 pe 5
+SH sm 2 sg 1572864 pd 1
+ES t 3
+CL id 144 tid 144 eid 144 etid 144 c ReqMsg n req k 3 pe 5 cid 145
+DM id 136 tid 136 eid 136 etid 136 c omnetpp::cMessage n hello k 10 pe 5
+MS id 2 d "t=CONNECTING\n0 0\n;i=device/laptop"
+
+E # 6 t 3 m 10 ce 3 msg 139
+- INFO:Node[8] meets rule (UPDATING, hello) -> UpdatingCache
+DM id 139 tid 139 eid 139 etid 139 c omnetpp::cMessage n hello k 10 pe 6

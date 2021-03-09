@@ -23,24 +23,24 @@ import dsbase.Edge;
 //
 network Mesh2 {
     parameters:
-        @display("bgb=300,300");
+        @display("bgb=500,500");
         string kind;
         int w = default(1);
     submodules:
         node[8] : <kind> like INode; // Indicate the kind of node
     connections:
-        node[0].port++ <--> Edge{weight = 1;} <--> node[1].port++;
-        node[0].port++ <--> Edge{weight = 1;} <--> node[2].port++;
-        node[0].port++ <--> Edge{weight = 1;} <--> node[4].port++;
-        node[0].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[0].port++ <--> Edge{weight = 10;} <--> node[1].port++;
+        node[0].port++ <--> Edge{weight = 10;} <--> node[2].port++;
+        node[0].port++ <--> Edge{weight = 10;} <--> node[4].port++;
+        node[0].port++ <--> Edge{weight = 10;} <--> node[5].port++;
+        node[0].port++ <--> Edge{weight = 10;} <--> node[6].port++;
         node[1].port++ <--> Edge{weight = 1;} <--> node[3].port++;
         node[1].port++ <--> Edge{weight = 1;} <--> node[4].port++;
         node[1].port++ <--> Edge{weight = 1;} <--> node[5].port++;
+        node[1].port++ <--> Edge{weight = 1;} <--> node[7].port++;
         node[2].port++ <--> Edge{weight = 1;} <--> node[5].port++;
         node[3].port++ <--> Edge{weight = 1;} <--> node[5].port++;
         node[4].port++ <--> Edge{weight = 1;} <--> node[5].port++;
-        node[6].port++ <--> Edge{weight = 1;} <--> node[0].port++;
         node[6].port++ <--> Edge{weight = 1;} <--> node[4].port++;
         node[7].port++ <--> Edge{weight = 1;} <--> node[4].port++;
-        node[7].port++ <--> Edge{weight = 1;} <--> node[1].port++;
 }

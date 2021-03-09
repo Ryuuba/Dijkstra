@@ -19,7 +19,7 @@ package dsbase.simulations;
 
 import dsbase.INode;
 
-import dsbase.simulations.Link;
+import dsbase.Edge;
 
 //
 // A generated network with ring topology.
@@ -27,14 +27,14 @@ import dsbase.simulations.Link;
 network Ring
 {
     parameters:
-        int n = default(10);
+        int size = default(10);
         string kind;
     submodules:
-        node[n] : <kind> like INode {
+        node[size] : <kind> like INode {
             @display("p=,,ring,");
         }
     connections:
-        for i=0..n-1 {
-            node[i].port++ <--> Link <--> node[(i+1)%n].port++;
+        for i=0..size-1 {
+            node[i].port++ <--> Edge{weight = 1;} <--> node[(i+1)%size].port++;
         }
 }

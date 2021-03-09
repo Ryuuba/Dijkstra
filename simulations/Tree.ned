@@ -19,7 +19,7 @@ package dsbase.simulations;
 
 import dsbase.INode;
 
-import dsbase.simulations.Link;
+import dsbase.Edge;
 
    
 
@@ -33,17 +33,17 @@ network Tree
     submodules:
         node[14] : <kind> like INode;
     connections:
-        node[0].port++  <--> Link <--> node[8].port++;
-        node[1].port++  <--> Link <--> node[8].port++;
-        node[2].port++  <--> Link <--> node[9].port++;
-        node[3].port++  <--> Link <--> node[9].port++;
-        node[4].port++  <--> Link <--> node[10].port++;
-        node[5].port++  <--> Link <--> node[10].port++;
-        node[6].port++  <--> Link <--> node[11].port++;
-        node[7].port++  <--> Link <--> node[11].port++;
-        node[8].port++  <--> Link <--> node[12].port++;
-        node[9].port++  <--> Link <--> node[12].port++;
-        node[10].port++ <--> Link <--> node[13].port++;
-        node[11].port++ <--> Link <--> node[13].port++;
-        node[12].port++ <--> Link <--> node[13].port++;
+        node[0].port++  <--> Edge{weight = 10;} <--> node[8].port++;
+        node[1].port++  <--> Edge{weight = 10;} <--> node[8].port++;
+        node[2].port++  <--> Edge{weight = 10;} <--> node[9].port++;
+        node[3].port++  <--> Edge{weight = 10;} <--> node[9].port++;
+        node[4].port++  <--> Edge{weight = 10;} <--> node[10].port++;
+        node[5].port++  <--> Edge{weight = 10;} <--> node[10].port++;
+        node[6].port++  <--> Edge{weight = 10;} <--> node[11].port++;
+        node[7].port++  <--> Edge{weight = 10;} <--> node[11].port++;
+        node[8].port++  <--> Edge{weight = 10;} <--> node[12].port++;
+        node[9].port++  <--> Edge{weight = 10;} <--> node[12].port++;
+        node[10].port++ <--> Edge{weight = 10;} <--> node[13].port++;
+        node[11].port++ <--> Edge{weight = 10;} <--> node[13].port++;
+        node[12].port++ <--> Edge{weight = 1;} <--> node[13].port++;
 }
