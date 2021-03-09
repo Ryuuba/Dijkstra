@@ -36,10 +36,10 @@
 class MegaMerger : public BaseNode {
 public:
   /** @brief A neighbor cache entry composed for these elements: the weight, 
-   *  the min uid, the max uid, the neighbor ID, the cluster id, the level, and
+   *  the min uid, the max uid, the neighbor ID, the cluster id, the level, the port, and
    *  the kind of link. 
    */
-  typedef std::tuple<double, int, int, int, int, int> CacheEntry;
+  typedef std::tuple<double, int, int, int, int, int, int> CacheEntry;
   /** @brief A triple of kind <weight, minUid, maxUid> */
   typedef std::tuple<double, int, int> Link;
   /** @brief Default constructor */
@@ -62,6 +62,7 @@ protected:
     MAX_ID,     // The max uid
     NID,        // The neighbor ID
     CID,        // The cluster ID of the neighbor
+    PORT,       // The port of the neighbor
     KIND        // The kind of link
   };
   enum LinkKind {
@@ -339,7 +340,7 @@ private:
   MegaMerger* ap;
 public:
   Solving(MegaMerger* ptr) : BaseAction("Solving"), ap(ptr) { }
-  void operator()(Msg*);
+  virtual void operator()(Msg*);
 };
 
 class MegaMerger::TryingAbsorption : public BaseAction {

@@ -55,6 +55,8 @@ public:
   static const Status UPDATING;
   /** @brief Status associated to nodes trying to establish a connection */
   static const Status CONNECTING;
+  /** @brief Status of routers */
+  static const Status ROUTING;
   /** @brief Default constructor */
   Status() : status(-1) { }
   /** @brief Overloaded constructor taking values from the static variables 
@@ -99,6 +101,7 @@ public:
     case 8:  return "PROCESSING";     
     case 9:  return "UPDATING";    
     case 10: return "CONNECTING"; 
+    case 11: return "ROUTING"; 
     default: return "UNDEFINED";
     }
   }

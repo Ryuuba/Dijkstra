@@ -29,6 +29,7 @@ void MegaMerger::initialize() {
       std::numeric_limits<int>::max(),
       -1,
       -1,
+      -1,
       LinkKind::UNKNOWN
     );
     neighborCache.push_back(std::move(entry));
@@ -277,6 +278,7 @@ void MegaMerger::fillCacheEntry(
   get<Index::MAX_ID>(entry) = (hello->getUid() > uid) ? hello->getUid() : uid;
   get<Index::NID>(entry) = hello->getUid();
   get<Index::CID>(entry) = hello->getUid();
+  get<Index::PORT>(entry) = arrivalGate;
   get<Index::KIND>(entry) = kind;
 }
 

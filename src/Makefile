@@ -32,22 +32,27 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 # Object files for local .cc, .msg and .sm files
 OBJS = \
     $O/BaseNode.o \
+    $O/Dijkstra.o \
     $O/Edge.o \
     $O/MegaMerger.o \
     $O/Status.o \
     $O/CheckMsg_m.o \
+    $O/GraphMsg_m.o \
     $O/HelloMsg_m.o \
     $O/MegaMerger_m.o \
     $O/MinMsg_m.o \
+    $O/NeighborhoodMsg_m.o \
     $O/QueryMsg_m.o \
     $O/ReqMsg_m.o
 
 # Message files
 MSGFILES = \
     CheckMsg.msg \
+    GraphMsg.msg \
     HelloMsg.msg \
     MegaMerger.msg \
     MinMsg.msg \
+    NeighborhoodMsg.msg \
     QueryMsg.msg \
     ReqMsg.msg
 

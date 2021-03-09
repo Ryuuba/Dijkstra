@@ -50,7 +50,13 @@ enum EventKind {
   /** @brief The reception of hello message */
   HELLO,
   /** @brief The reception of a message containg a local minimum */
-  MIN
+  MIN,
+  /** @brief The reception of a neighborhood in a convergecast process */
+  NEIGHBORHOOD,
+  /** @brief The reception of adjacency matrix. */
+  GRAPH,
+  /** @brief The reception of a data packet */
+  DATA
 };
 
 #endif
